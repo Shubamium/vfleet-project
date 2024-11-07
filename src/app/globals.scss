@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--fontP);
+}
+
+.dw {
+  user-select: none;
+  pointer-events: none;
+}
+
+:root {
+  --gold: #fec200;
+  --blue: #023daf;
+  --grey: #d7d7d7;
+  --dGrey: #888888;
+  --black: #151717;
+  color: #b6b6b6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fontH);
+  color: var(--grey);
+}
+p {
+}
+button {
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  text-decoration: none;
+  color: black;
+}
+.btn {
+  cursor: pointer;
+  transition: all 200ms ease;
+  &:hover {
+    scale: 1.05;
+  }
+  &:active {
+    scale: 0.95;
+  }
+}
+
+.common-h {
+  font-size: 3rem;
+  color: var(--gold);
+}
+.common-sh {
+  font-size: 2rem;
+  color: var(--blue);
+}
+.common-p {
+  font-size: var(--grey);
+}
+
+body {
+  background: #0c0f13;
+}
+
+main {
+  min-height: 190vh;
+}
+
+.confine {
+  max-width: min(1280px, 90%);
+  margin: 0 auto;
+}
+
+.btn-triangle {
+  --btnCol: var(--blue);
+  background: var(--btnCol);
+  column-rule: var(--black);
+
+  &.yellow {
+    --btnCol: var(--gold);
+  }
+  position: relative;
+  .endbits {
+    position: absolute;
+    // right:
+    left: 105%;
+    display: flex;
+    gap: 0.5em;
+    top: 0%;
+    height: 100%;
+    .a {
+      height: 100%;
+      width: 10px;
+      background: var(--btnCol);
+    }
+    .b {
+      height: 100%;
+      width: 20px;
+      clip-path: polygon(0 0, 100% 0, 78% 100%, 0% 100%);
+      background: var(--btnCol);
+    }
+  }
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.15em 1em;
+  padding-left: 0.2em;
+  gap: 1em;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  transform-origin: left;
+  white-space: nowrap;
+  min-width: 600px;
+  .triangle {
+    display: flex;
+    align-items: center;
+    --color: var(--black);
+    width: 100%;
+    .arrow-line {
+      color: var(--color);
+      width: 100%;
+      height: 3px;
+      background: var(--color);
+      margin-right: -5px;
+    }
+    svg {
+      width: 20px;
+      fill: var(--color);
+      path {
+        fill: var(--color);
+      }
+      height: 20px;
+    }
+  }
+}

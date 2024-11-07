@@ -1,95 +1,245 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+import "./home.scss";
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <main id="page_home" className={""}>
+      <section id="hero_section">
+        <div className="background dw">
+          <video src="/ocean_final.webm" autoPlay loop muted poster="/"></video>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="confine">
+          <article className="left">
+            <img src="/gfx/icon_main.png" alt="" className="icon dw" />
+            <div className="title">
+              <h2 className="first">
+                <span className="outline">SAILING THE</span> VIRTUAL SEAS
+              </h2>
+              <h2 className="second">
+                WITH HEARTS FULL AND{" "}
+                <img src="/de/mini_decor.png" alt="" className="dw" />
+              </h2>
+              <h2 className="third">
+                <span>EYES ON</span> THE HORIZON
+              </h2>
+            </div>
+            <div className="desc">
+              <p>
+                (Placeholder H1) dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.{" "}
+              </p>
+            </div>
+
+            <div className="cta">
+              <button className="btn btn-triangle">
+                LEARN MORE ABOUT VFLEET
+                <div className="triangle">
+                  <div className="arrow-line"></div>
+                  <svg
+                    width="75"
+                    height="87"
+                    viewBox="0 0 75 87"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="arrow"
+                  >
+                    <path
+                      d="M75 43.3013L-3.78552e-06 86.6025L0 -3.27835e-06L75 43.3013Z"
+                      fill="#D9D9D9"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </article>
+          <figure className="right">
+            <img src="/gfx/hero_art.png" alt="" className="hero-art" />
+          </figure>
+          <div className="overlay dw"></div>
+        </div>
+      </section>
+
+      <section id="fleet-animation"></section>
+      <section id="talent-rotate">
+        <div className="background"></div>
+        <div className="confine">
+          <div className="left">
+            <h2>TALENTS</h2>
+            <p>
+              (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehend
+            </p>
+            <button className="btn btn-triangle yellow">
+              SEE OUR TALENT
+              <div className="triangle">
+                <div className="arrow-line"></div>
+                <svg
+                  width="75"
+                  height="87"
+                  viewBox="0 0 75 87"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="arrow"
+                >
+                  <path
+                    d="M75 43.3013L-3.78552e-06 86.6025L0 -3.27835e-06L75 43.3013Z"
+                    fill="#D9D9D9"
+                  />
+                </svg>
+              </div>
+              <div className="endbits">
+                <div className="a"></div>
+                <div className="b"></div>
+              </div>
+            </button>
+          </div>
+          <div className="right">
+            <img src="/gfx/talent_art.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-action">
+        <div className="background">
+          <img src="/gfx/contact-banner.png" alt="" />
+        </div>
+        <div className="confine">
+          <div className="left"></div>
+          <div className="right">
+            <h2>CONTACT</h2>
+            <p>
+              (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
+              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehend
+            </p>
+            <button className="btn btn-triangle yellow">
+              REACH OUT
+              <div className="triangle">
+                <div className="arrow-line"></div>
+                <svg
+                  width="75"
+                  height="87"
+                  viewBox="0 0 75 87"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="arrow"
+                >
+                  <path
+                    d="M75 43.3013L-3.78552e-06 86.6025L0 -3.27835e-06L75 43.3013Z"
+                    fill="#D9D9D9"
+                  />
+                </svg>
+              </div>
+              <div className="endbits">
+                <div className="a"></div>
+                <div className="b"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="explore">
+        <div className="explore-heading">
+          <svg
+            width="62"
+            height="106"
+            viewBox="0 0 62 106"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="r"
+          >
+            <g clipPath="url(#clip0_240_2394)">
+              <rect
+                x="1.54027e-05"
+                y="8"
+                width="63.6396"
+                height="63.6396"
+                transform="rotate(45 1.54027e-05 8)"
+                fill="#161616"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_240_2394">
+                <rect width="62" height="106" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <h2>
+            <span className="first">JOIN US AS WE</span>{" "}
+            <span className="second">EXPLORE</span>
+            <span className="third">NEW HORIZONS.</span>
+          </h2>
+          <svg
+            width="62"
+            height="106"
+            viewBox="0 0 62 106"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="l"
+          >
+            <g clipPath="url(#clip0_240_2394)">
+              <rect
+                x="1.54027e-05"
+                y="8"
+                width="63.6396"
+                height="63.6396"
+                transform="rotate(45 1.54027e-05 8)"
+                fill="#161616"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_240_2394">
+                <rect width="62" height="106" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div className="content">
+          <div className="mini-confine">
+            <div className="left">
+              <button className="btn btn-triangle ">
+                REACH OUT
+                <div className="triangle">
+                  <div className="arrow-line"></div>
+                  <svg
+                    width="75"
+                    height="87"
+                    viewBox="0 0 75 87"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="arrow"
+                  >
+                    <path
+                      d="M75 43.3013L-3.78552e-06 86.6025L0 -3.27835e-06L75 43.3013Z"
+                      fill="#D9D9D9"
+                    />
+                  </svg>
+                </div>
+                <div className="endbits">
+                  <div className="a"></div>
+                  <div className="b"></div>
+                </div>
+              </button>
+            </div>
+            <div className="right">
+              <p>
+                (PLACEHOLDER H4) ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate velit esse
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
