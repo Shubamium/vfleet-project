@@ -23,6 +23,9 @@ export default function Header() {
           <Link href={"/donate"} className={`btn btn-nav`}>
             <span>DONATE</span>
           </Link>
+          <Link href={"/news"} className={`btn btn-nav`}>
+            <span>NEWS</span>
+          </Link>
           <Link href={"#"} target="_blank" className={`btn btn-nav`}>
             <span>MERCH</span>
           </Link>
