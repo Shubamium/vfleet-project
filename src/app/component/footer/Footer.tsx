@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./footer.scss";
 import { FaDiscord, FaHeart } from "react-icons/fa";
+import SocialList from "../socialList/SocialList";
 export default function Footer() {
   return (
     <footer id="footer">
@@ -111,26 +112,7 @@ export default function Footer() {
                   <FaHeart />
                 </p>
 
-                <div className="socials-list">
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                  <a href="#" target="_blank" className="btn btn-social">
-                    <FaDiscord />
-                  </a>
-                </div>
+                <SocialList />
               </div>
             </div>
           </div>

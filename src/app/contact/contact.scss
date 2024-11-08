@@ -1,0 +1,69 @@
+#page_contact {
+  padding-top: 200px;
+
+  #top-section {
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .panel {
+      padding-top: 1em;
+      width: 100%;
+      height: 100%;
+      background: url("/bg/pattern_wave.png"), url("/bg/steel.png"), #0c0f13;
+      gap: 1em;
+      background-size: 200px 20px, 100%;
+      height: 500px;
+      .confine {
+        max-width: 700px;
+        .form-group {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1em;
+        }
+        .fi {
+          display: flex;
+          flex-direction: column;
+          label {
+            color: var(--gold);
+            font-family: var(--fontH);
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin: 0.5em 0;
+            letter-spacing: 2px;
+            font-weight: bold;
+          }
+          input,
+          textarea {
+            resize: none;
+            background: #121825;
+            border: 1px solid var(--blue);
+            padding: 0.55em 0.5em;
+            font-size: 1.2rem;
+            color: var(--blue);
+
+            &::placeholder {
+              opacity: 0.4;
+              color: #d7d7d773;
+              opacity: 0.4;
+            }
+          }
+          textarea {
+            min-height: 250px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .btn-special {
+      margin: 1em 0;
+    }
+  }
+}
