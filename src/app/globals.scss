@@ -52,15 +52,26 @@ button {
 }
 
 .common-h {
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: var(--gold);
+  text-shadow: 0px 0px 4px black;
+  font-weight: bold;
+  font-family: var(--fontH);
+  line-height: 80%;
+  &.s {
+    color: var(--grey);
+  }
 }
 .common-sh {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--blue);
+  line-height: 90%;
+  font-weight: bold;
+  text-shadow: 0px 0px 4px black;
 }
 .common-p {
   font-size: var(--grey);
+  text-shadow: 0px 0px 4px black;
 }
 
 body {
@@ -76,6 +87,48 @@ main {
   margin: 0 auto;
 }
 
+.btn-special {
+  color: var(--gold);
+  background: black;
+  border: 2px solid var(--blue);
+  padding: 0.35em 2em;
+  font-weight: bold;
+  font-family: var(--fontH);
+  font-size: 1.5rem;
+  padding-bottom: 0.5em;
+  position: relative;
+  &:hover {
+    &::before,
+    &::after {
+      // top: -10px;
+      scale: 1.3;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    background: var(--blue);
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    transition: all 100ms;
+    transform-origin: top left;
+  }
+  &::after {
+    transform-origin: bottom right;
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 25px;
+    transition: all 100ms;
+    height: 25px;
+    background: var(--blue);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+}
 .btn-triangle {
   --btnCol: var(--blue);
   background: var(--btnCol);

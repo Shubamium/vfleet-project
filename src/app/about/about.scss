@@ -1,0 +1,125 @@
+#page_about {
+  padding-top: 200px;
+  .general-heading {
+    margin-bottom: 200px;
+  }
+  #about_mission {
+    padding-top: 100px;
+    background: url("/bg/vfleet-gen.png");
+    background-size: cover;
+    padding-bottom: 100px;
+    .panel {
+      max-width: 1000px;
+      margin: 2em auto;
+
+      background: url("/bg/steel.png"), #12171e7a;
+      backdrop-filter: blur(2px) brightness(80%);
+      padding: 2em;
+      border: 4px solid var(--blue);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .banner-art {
+        margin-top: -225px;
+        margin-bottom: -20px;
+        height: 350px;
+      }
+      p {
+        max-width: 600px;
+        margin-bottom: 1em;
+        text-align: justify;
+        font-size: 1.2rem;
+        text-shadow: 0px 0px 4px black;
+        strong {
+          // opacity: 2;
+          filter: brightness(120%);
+        }
+      }
+    }
+  }
+
+  .basic-section {
+    position: relative;
+    .side {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      left: 0%;
+      figure {
+        height: 100%;
+        position: relative;
+        width: 100%;
+        // background: green;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          max-height: 500px;
+
+          object-fit: cover;
+          // display: none;
+          // background: red;
+        }
+      }
+    }
+    .confine {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3em;
+      align-items: center;
+      min-height: 500px;
+      position: relative;
+      z-index: 2;
+    }
+    .common-p {
+      margin: 1em 0;
+    }
+
+    &.reverse {
+      background-color: #12171e;
+      .side {
+        grid-template-columns: 1.5fr 1fr;
+      }
+      .confine {
+        grid-template-columns: 1.5fr 1fr;
+        .basic-article {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  #contribution {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    min-height: 1000px;
+    align-items: center;
+    text-align: center;
+
+    .plane-art {
+      img {
+        max-height: 300px;
+      }
+    }
+    .line {
+      height: 70px;
+      width: 2px;
+      background: rgba(212, 212, 212, 0.767);
+      margin: 0 auto;
+    }
+    .icon {
+      margin: 1em 0;
+    }
+    article {
+      .common-p {
+        margin: 2em 0;
+        max-width: 800px;
+      }
+    }
+  }
+}

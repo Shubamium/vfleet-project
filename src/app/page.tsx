@@ -4,7 +4,13 @@ export default function Home() {
     <main id="page_home" className={""}>
       <section id="hero_section">
         <div className="background dw">
-          <video src="/ocean_final.webm" autoPlay loop muted poster="/"></video>
+          <video
+            src="/video/ocean_final.webm"
+            autoPlay
+            loop
+            muted
+            poster="/"
+          ></video>
         </div>
         <div className="confine">
           <article className="left">
