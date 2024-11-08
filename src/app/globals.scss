@@ -31,6 +31,7 @@ h3 {
   color: var(--grey);
 }
 p {
+  line-height: 1.4;
 }
 button {
   padding: 0;
@@ -79,7 +80,7 @@ body {
 }
 
 main {
-  // min-height: 190vh;
+  min-height: 100vh;
 }
 
 .confine {
@@ -136,6 +137,24 @@ main {
 
   &.yellow {
     --btnCol: var(--gold);
+  }
+
+  &.reverse {
+    min-width: 0;
+    .endbits {
+      left: initial;
+      right: 102%;
+      scale: -1 1;
+    }
+    .triangle {
+      flex-direction: row-reverse;
+      .arrow-line {
+        min-width: 50px;
+      }
+      svg {
+        scale: -1;
+      }
+    }
   }
   position: relative;
   .endbits {

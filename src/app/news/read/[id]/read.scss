@@ -1,0 +1,123 @@
+#page_read {
+  padding-top: 200px;
+
+  #news-info {
+    .news-banner {
+      img {
+        width: 100%;
+        background: #080b10;
+        height: 720px;
+        border: 3px solid var(--blue);
+        outline: none;
+      }
+    }
+
+    .news-detail {
+      margin-top: 1em;
+
+      .sub-heading {
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+          p {
+            font-size: 1.2rem;
+            .date {
+              color: var(--blue);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #news-data {
+    background-color: #0f1216;
+    min-height: 1000px;
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--fontP);
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p,
+    a {
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+    p {
+      margin: 1em 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 2em;
+      li {
+        font-size: 1.2rem;
+      }
+    }
+    img {
+      width: 100%;
+      background: #080b10b6;
+      object-fit: contain;
+      margin: 1em 0;
+    }
+  }
+
+  #news-footer {
+    background: url("/bg/sea-bg2.png");
+    background-size: cover;
+    .confine {
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin: 1em 0;
+        padding: 2em;
+        .right {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+        }
+      }
+    }
+
+    .footer-bg {
+      img {
+        width: 100%;
+        height: 500px;
+        object-fit: contain;
+      }
+    }
+
+    .footer-art {
+      margin: 0 auto;
+      margin-top: -550px;
+
+      outline: 2px solid rgba(255, 255, 255, 0.692);
+      outline-offset: -30px;
+      width: 80%;
+      top: 10px;
+      position: relative;
+      img {
+        width: 100%;
+        object-fit: contain;
+        height: 600px;
+      }
+    }
+  }
+}
