@@ -30,26 +30,32 @@ export default function Footer() {
                 <Link href={"/"} className="btn btn-mini-nav">
                   Home
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/about"} className="btn btn-mini-nav">
+                  About
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/talents"} className="btn btn-mini-nav">
+                  Talents
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/donate"} className="btn btn-mini-nav">
+                  Donate
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/news"} className="btn btn-mini-nav">
+                  News
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link
+                  href={
+                    "https://merch.kawaentertainment.com/collections/vfleet-project"
+                  }
+                  target="_blank"
+                  className="btn btn-mini-nav"
+                >
+                  Merch
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/contact"} className="btn btn-mini-nav">
+                  Contact
                 </Link>
-                <Link href={"/"} className="btn btn-mini-nav">
-                  Home
+                <Link href={"/legal"} className="btn btn-mini-nav">
+                  Legal
                 </Link>
               </div>
             </nav>
@@ -94,10 +100,18 @@ export default function Footer() {
                 </div>
               </div>
               <div className="partner-list">
-                <a target="_blank" href="#" className="partner btn">
+                <a
+                  target="_blank"
+                  href="https://merch.kawaentertainment.com/"
+                  className="partner btn"
+                >
                   <img src="/gfx/partner1.png" alt="" />
                 </a>
-                <a target="_blank" href="#" className="partner btn">
+                <a
+                  target="_blank"
+                  href="https://www.studionekoyama.com/"
+                  className="partner btn"
+                >
                   <img src="/gfx/partner2.png" alt="" />
                 </a>
               </div>
