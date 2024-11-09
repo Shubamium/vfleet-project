@@ -26,9 +26,9 @@ export default function Header() {
           <Link href={"/news"} className={`btn btn-nav`}>
             <span>NEWS</span>
           </Link>
-          <Link href={"#"} target="_blank" className={`btn btn-nav`}>
+          <a href={"#"} target="_blank" className={`btn btn-nav`}>
             <span>MERCH</span>
-          </Link>
+          </a>
           <Link href={"/contact"} className={`btn btn-nav`}>
             <span>CONTACT</span>
           </Link>

@@ -22,6 +22,11 @@ export default function AboutPage() {
             Through <strong>entertainment and community building</strong>,
             VFleet seeks to aid in their mission of preservation!
           </p>
+
+          <div className="side tl"></div>
+          <div className="side tr"></div>
+          <div className="side bl"></div>
+          <div className="side br"></div>
         </div>
       </section>
 

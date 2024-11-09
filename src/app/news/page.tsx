@@ -35,7 +35,7 @@ export default function NewsPage() {
         <div className="news-list confine">
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -66,7 +66,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -97,7 +97,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -128,7 +128,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -159,7 +159,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -190,7 +190,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -221,7 +221,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -252,7 +252,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">
@@ -283,7 +283,7 @@ export default function NewsPage() {
           </div>
           <div className="news">
             <div className="thumbnail">
-              <img src="" alt="" className="thumb" />
+              <img alt="" className="thumb" />
             </div>
             <div className="detail">
               <div className="heading">

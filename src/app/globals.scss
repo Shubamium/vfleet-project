@@ -75,8 +75,11 @@ button {
   text-shadow: 0px 0px 4px black;
 }
 
+html {
+}
 body {
   background: #0c0f13;
+  border-bottom: 3px solid var(--gold);
 }
 
 main {
@@ -90,7 +93,7 @@ main {
 
 .btn-special {
   color: var(--gold);
-  background: black;
+  background: #0c0f13;
   border: 2px solid var(--blue);
   padding: 0.35em 2em;
   font-weight: bold;
@@ -153,6 +156,7 @@ main {
       }
       svg {
         scale: -1;
+        margin-right: -10px;
       }
     }
   }
