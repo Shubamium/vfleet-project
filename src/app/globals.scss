@@ -136,8 +136,7 @@ main {
 .btn-triangle {
   --btnCol: var(--blue);
   background: var(--btnCol);
-  column-rule: var(--black);
-
+  color: var(--black);
   &.yellow {
     --btnCol: var(--gold);
   }

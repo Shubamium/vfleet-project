@@ -1,22 +1,47 @@
 import SocialList from "@/app/component/socialList/SocialList";
 import "./read.scss";
-export default function NewsRead() {
+import { fetchData, urlFor } from "@/db/client";
+import { redirect } from "next/navigation";
+import Link from "next/link";
+import { PortableText } from "next-sanity";
+
+type Props = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+export default async function NewsRead({ params }: Props) {
+  const id = (await params).id;
+
+  const news = await fetchData<any>(`
+		*[_type == 'news' && _id == '${id}']{
+			...,
+			'category': category -> name,
+	}[0]
+	`);
+  if (!news) {
+    redirect("/news");
+  }
   return (
     <main id="page_read">
       <section id="news-info" className="confine">
         <div className="news-banner">
-          <img src="/" alt="" />
+          <img src={news.banner && urlFor(news.banner).url()} alt="" />
         </div>
 
         <div className="news-detail">
           <div className="sub-heading">
             <div className="left">
               <p>
-                <span className="date"> 22 JANUARY 2024</span> - CATEGORY
+                <span className="date">
+                  {" "}
+                  {new Date(news.date).toDateString()}
+                </span>{" "}
+                - {news.category}
               </p>
             </div>
             <div className="right">
-              <button className="btn btn-triangle reverse ">
+              <Link href={"/"} className="btn btn-triangle reverse ">
                 <div className="endbits">
                   <div className="a"></div>
                   <div className="b"></div>
@@ -38,16 +63,26 @@ export default function NewsRead() {
                   </svg>
                 </div>
                 NEWS LIST
-              </button>
+              </Link>
             </div>
           </div>
-          <h2 className="common-h">NEWS TITLE HERE bla bla bla bla bla </h2>
+          <h2 className="common-h">{news.title} </h2>
         </div>
       </section>
 
       <article id="news-data">
         <div className="confine">
-          <h1>Main Heading</h1>
+          <PortableText
+            value={news.post}
+            components={{
+              types: {
+                image: ({ value }) => {
+                  return <img src={urlFor(value).url()}></img>;
+                },
+              },
+            }}
+          />
+          {/* <h1>Main Heading</h1>
           <h2>Second Heading</h2>
           <p>
             We encourage you to support our talents on their streaming journeys,
@@ -67,7 +102,7 @@ export default function NewsRead() {
             <li>list item</li>
             <li>list item</li>
             <li>list item</li>
-          </ul>
+          </ul> */}
         </div>
       </article>
 
@@ -80,7 +115,7 @@ export default function NewsRead() {
             </div>
 
             <div className="right">
-              <button className="btn btn-triangle reverse ">
+              <a href="#page_read" className="btn btn-triangle reverse ">
                 <div className="triangle">
                   <div className="arrow-line"></div>
                   <svg
@@ -102,8 +137,8 @@ export default function NewsRead() {
                   <div className="a"></div>
                   <div className="b"></div>
                 </div>
-              </button>
-              <button className="btn btn-triangle reverse yellow">
+              </a>
+              <Link href={"/news"} className="btn btn-triangle reverse yellow">
                 <div className="triangle">
                   <div className="arrow-line"></div>
                   <svg
@@ -125,7 +160,7 @@ export default function NewsRead() {
                   <div className="a"></div>
                   <div className="b"></div>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
 
