@@ -75,7 +75,7 @@
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     transition: all 500ms ease;
-    z-index: 200;
+    z-index: 20;
     position: relative;
     .detail {
       padding-top: 150px;
@@ -172,6 +172,10 @@
         color: var(--black);
       }
     }
+    .div {
+      pointer-events: visibleFill;
+      display: none;
+    }
   }
   .main-art {
     position: absolute;
@@ -182,9 +186,15 @@
     transition: all 500ms ease;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    z-index: 10;
+    z-index: 50;
+    pointer-events: none;
     .bg-right {
       position: relative;
+      pointer-events: all;
+    }
+    .bg-left {
+      // display: none;
+      pointer-events: none;
     }
   }
   &.show {

@@ -144,10 +144,10 @@ export default function TalentPreviewer({}: Props) {
             </Link>
           </div>
         </div>
-        <div className="div"></div>
+        <div className="div dw"></div>
       </section>
       <div className="main-art">
-        <div className="bg-left"></div>
+        <div className="bg-left dw"></div>
         <div className="bg-right">
           <img src="/gfx/lexi-full.png" alt="" className="talent-full-art" />
           <button
