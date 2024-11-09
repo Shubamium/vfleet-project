@@ -1,62 +1,71 @@
 "use client";
 
+import { urlFor } from "@/db/client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 type TalentCardData = {
-  main_art: string;
+  name: string;
+  title: string;
+  art: {
+    icon: string;
+    list: string;
+    logo: string;
+  };
+  slug: string;
 };
-let placeholder: TalentCardData[] = [
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art2.png",
-  },
 
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-];
-let main: TalentCardData[] = [
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-  {
-    main_art: "/gfx/talent-card-art.png",
-  },
-];
+// let placeholder: TalentCardData[] = [
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art2.png",
+//   },
+
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+// ];
+// let main: TalentCardData[] = [
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+//   {
+//     main_art: "/gfx/talent-card-art.png",
+//   },
+// ];
 
 let classList = ["a", "b", "c", "active d", "e", "f"];
 
@@ -68,16 +77,19 @@ const TalentCard = ({ position, talentData }: TalentProp) => {
   // let talentData = talend;
   return (
     <Link
-      href={"/talent/talent-name"}
+      href={`/talent/${talentData.slug}`}
       className={`talent-card ${classList[position] ?? "hidden"} `}
     >
       <img src="/bg/card-background.png" alt="" className="card-bg" />
       <img src="/bg/white-texture.png" alt="" className="card-bg texture" />
-      <img src={talentData.main_art} alt="" className="talent-art" />
-
+      <img src={talentData.art.list} alt="" className="talent-art" />
+      <img src={talentData.art.icon} className="icon" />
+      <img src={talentData.art.logo} className="logo" />
+      <div className="arrow l"></div>
+      <div className="arrow r"></div>
       <div className="data">
-        <p className="talent">Talent Name Here</p>
-        <p className="talent-title">U.S.S LEXINGTON</p>
+        <p className="talent">{talentData.name}</p>
+        <p className="talent-title">{talentData.title}</p>
         <div className="arrow"></div>
         <p className="note">
           click for more info <FaArrowRight />
@@ -88,13 +100,17 @@ const TalentCard = ({ position, talentData }: TalentProp) => {
   );
 };
 
-const genList = ["GEN 1", "PILOTS", "GEN 2", "FORTIS", "GEN 3"];
+// const genList = ["GEN 1", "PILOTS", "GEN 2", "FORTIS", "GEN 3"];
 
-export default function TalentSelection() {
-  let talentData = main;
+type Props = {
+  data: Map<string, any>;
+};
+export default function TalentSelection({ data }: Props) {
+  let genList: string[] = Array.from(data.entries()).map((val) => val[0]);
 
   const [positionList, setPositionList] = useState<number[]>([]);
   const [toRender, setToRender] = useState<TalentCardData[]>([]);
+  const [activeCat, setActiveCat] = useState<string>(genList[0]);
 
   // Debouncer
   const [debouncer, setdebouncer] = useState(false);
@@ -132,6 +148,7 @@ export default function TalentSelection() {
   };
 
   let fillToFit = (origin: TalentCardData[]) => {
+    if (origin.length === 0) return [];
     let minimum = 10;
     let target = [...origin];
     while (target.length < minimum) {
@@ -141,10 +158,11 @@ export default function TalentSelection() {
   };
 
   useEffect(() => {
-    let fitted = fillToFit(main);
+    let talentData = data.get(activeCat).talents ?? [];
+    let fitted = fillToFit(talentData);
     setToRender(fitted);
     setPositionList(fitted.map((_, i) => i));
-  }, []);
+  }, [data, activeCat]);
 
   return (
     <>
@@ -168,7 +186,14 @@ export default function TalentSelection() {
           return (
             <TalentCard
               position={positionList[index]}
-              talentData={data}
+              talentData={{
+                ...data,
+                art: {
+                  icon: urlFor(data.art.icon).url(),
+                  logo: urlFor(data.art.logo).url(),
+                  list: urlFor(data.art.list).url(),
+                },
+              }}
               key={"card-el" + index}
             />
           );
@@ -177,11 +202,27 @@ export default function TalentSelection() {
       <section id="generation-select" className="confine">
         <h2 className="common-h s">GENERATION</h2>
         <div className="gen-list">
-          <button className="btn-gen selected">GEN 1</button>
-          <button className="btn-gen">PILOTS</button>
-          <button className="btn-gen">GEN 2</button>
+          {/* <button className="btn-gen selected">GEN 1</button> */}
+          {genList.map((gen) => {
+            const isDisabled = data.get(gen).disabled;
+            return (
+              <button
+                className={`btn-gen ${isDisabled ? "disabled" : ""} ${
+                  activeCat === gen ? "selected" : ""
+                }`}
+                key={"btn-gen-" + gen}
+                disabled={isDisabled}
+                onClick={() => {
+                  setActiveCat(gen);
+                }}
+              >
+                {gen}
+              </button>
+            );
+          })}
+          {/* <button className="btn-gen">GEN 2</button>
           <button className="btn-gen">FORTIS</button>
-          <button className="btn-gen disabled">GEN 3</button>
+          <button className="btn-gen disabled">GEN 3</button> */}
         </div>
       </section>
       <section id="talent-control">

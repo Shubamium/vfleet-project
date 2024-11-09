@@ -2,21 +2,27 @@
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
-type Props = {};
+import { PortableText } from "next-sanity";
+import { urlFor } from "@/db/client";
+import { FaTwitch, FaYoutube } from "react-icons/fa";
+type Props = {
+  t: any;
+};
 
-export default function TalentPreviewer({}: Props) {
+export default function TalentPreviewer({ t }: Props) {
   const [show, setShow] = useState(false);
   return (
     <main id="page_talent" className={`${show ? "show" : "hidden"}`}>
       <div className="main-bg">
         <div className="bg-left"></div>
         <div className="bg-right">
+          <img src={urlFor(t.art.background).url()} alt="" className="talent" />
           <img
-            src="/gfx/talent-background-sample-art.png"
+            src={urlFor(t.art.detail_main).url()}
             alt=""
-            className="talent"
+            className="talent-tall-art"
           />
-          <img src="/gfx/preview-art.png" alt="" className="talent-tall-art" />
+
           {/* <img src="/gfx/lexi-full.png" alt="" className="talent-full-art" /> */}
           {/* <button className="btn btn-triangle reverse btn-full ">
 				<div className="triangle">
@@ -48,51 +54,55 @@ export default function TalentPreviewer({}: Props) {
         <div className="detail">
           <div className="top-detail">
             <div className="socials">
-              <a href={"#"} target="_blank" className="btn btn-social">
+              <a
+                href={t.socials.twitter}
+                target="_blank"
+                className="btn btn-social"
+              >
                 <FaXTwitter />
               </a>
-              <a href={"#"} target="_blank" className="btn btn-social">
-                <FaXTwitter />
+              <a
+                href={t.socials.twitch}
+                target="_blank"
+                className="btn btn-social"
+              >
+                <FaTwitch />
               </a>
-              <a href={"#"} target="_blank" className="btn btn-social">
-                <FaXTwitter />
+              <a
+                href={t.socials.youtube}
+                target="_blank"
+                className="btn btn-social"
+              >
+                <FaYoutube />
               </a>
             </div>
 
             <div className="names">
               <div className="title">
-                <p className="common-sh">SHIPNAME/TITLE</p>
+                <p className="common-sh">{t.title}</p>
               </div>
-              <h2 className="common-h s">TALENT NAME</h2>
+              <h2 className="common-h s">{t.name}</h2>
             </div>
           </div>
 
           <div className="description">
-            <p>
-              (Placeholder) FA.ye is a F/A-18 E/F who has the need for speed.
-              She wa inducted into the Blue Angels, and loves soaring in the sky
-              with her sisters while making people smile! One day during a Blue
-              Angels air show, FA.ye’s pilot attempted to push her limits and
-              reach Mach 11, but it ended up causing a dimensional rift in the
-              space-time continuum.
-            </p>
-            <p>
-              The jet and pilot were fused into one being, and the sentient jet
-              girl FA.ye-18 was born! FA.ye now spends her days following her
-              passions, whether it be flying, gaming, singing, or hanging out
-              with her lovely VFleet shipsters. Despite her mature appearance,
-              she’s generally very innocent and naive and gets easily flustered
-              when people point out her pair of large….wings. FA.ye’s wish is to
-              inspire others to soar to new heights and help VFleet’s mission of
-              preserving living history.
-            </p>
+            <PortableText value={t.description} />
           </div>
 
           <div className="info-table">
             <div className="chibi">
-              <img src="/gfx/chibi.png" alt="" />
+              <img src={urlFor(t.art.detail_small).url()} alt="" />
             </div>
-            <div className="info-list">
+            {t.info &&
+              t.info.map((info: any, index: number) => {
+                return (
+                  <div className="info-list" key={"info-list-" + index}>
+                    <h4>{info.title}</h4>
+                    <p>{info.value}</p>
+                  </div>
+                );
+              })}
+            {/* <div className="info-list">
               <h4>INFO HEADING</h4>
               <p>TALENT INFO CONTEXT FILL</p>
             </div>
@@ -111,11 +121,7 @@ export default function TalentPreviewer({}: Props) {
             <div className="info-list">
               <h4>INFO HEADING</h4>
               <p>TALENT INFO CONTEXT FILL</p>
-            </div>
-            <div className="info-list">
-              <h4>INFO HEADING</h4>
-              <p>TALENT INFO CONTEXT FILL</p>
-            </div>
+            </div> */}
           </div>
 
           <div className="action">
@@ -149,7 +155,14 @@ export default function TalentPreviewer({}: Props) {
       <div className="main-art">
         <div className="bg-left dw"></div>
         <div className="bg-right">
-          <img src="/gfx/lexi-full.png" alt="" className="talent-full-art" />
+          <div className="overlay"></div>
+          <img
+            src={urlFor(t.art.detail_full).url()}
+            alt=""
+            className="talent-full-art"
+          />
+          <img src={urlFor(t.art.icon).url()} alt="" className="icon" />
+          <img src={urlFor(t.art.logo).url()} alt="" className="logo" />
           <button
             className="btn btn-triangle reverse btn-full yellow "
             onClick={() => {

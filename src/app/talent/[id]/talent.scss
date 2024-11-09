@@ -104,6 +104,7 @@
         }
 
         .names {
+          text-transform: uppercase;
           .title {
             margin: 1em 0;
             margin-bottom: 0;
@@ -150,6 +151,7 @@
           background: #171c23;
           border: 2px solid #575757;
           padding: 0;
+          text-transform: uppercase;
           h4 {
             background: #0a0c10;
             color: var(--dGrey);
@@ -191,6 +193,30 @@
     .bg-right {
       position: relative;
       pointer-events: auto;
+      .overlay {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to top, rgb(11, 13, 20), transparent 70%);
+
+        position: absolute;
+        top: 0%;
+        left: 0%;
+      }
+      .icon {
+        position: absolute;
+        left: -50px;
+        top: 10%;
+        width: 100px;
+        height: 100px;
+        transition: all 500ms ease;
+      }
+      .logo {
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+        width: 300px;
+        height: 150px;
+      }
     }
     .bg-left {
       // display: none;
@@ -209,6 +235,9 @@
     .main-art {
       grid-template-columns: 0fr 1fr;
 
+      .icon {
+        left: 20px;
+      }
       .talent-tall-art {
         transform: translateX(100vw);
         opacity: 0;

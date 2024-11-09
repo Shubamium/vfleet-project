@@ -6,7 +6,11 @@ import { fetchData } from "@/db/client";
 export default async function NewsPage() {
   const allNews = await fetchData<any[]>(`
 		*[_type == 'news']{
-		...,
+		_id,
+		date,
+		excerpt,
+		title,
+		banner,
 		'category': category->_id,
 		}
 	`);

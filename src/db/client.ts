@@ -11,6 +11,11 @@ export const client = createClient({
 const builder = imageUrlBuilder(client);
 
 export function urlFor(source: any) {
+  if (!source)
+    return {
+      url: () =>
+        "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg",
+    };
   return builder.image(source);
 }
 

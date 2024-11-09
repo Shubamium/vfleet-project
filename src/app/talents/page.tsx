@@ -1,10 +1,28 @@
-"use client";
+import { fetchData } from "@/db/client";
 import "./talents.scss";
 import TalentSelection from "./talentSelection/TalentSelection";
-export default function TalentPage() {
+export default async function TalentPage() {
+  const talentGroup = await fetchData<any[]>(`
+		*[_type == 'talent_group'] | order(_createdAt asc){
+			name,
+			disabled,
+			talents[]->{
+				name,
+				title,
+				'slug':  slug.current,
+				art{
+					list,
+					logo,
+					icon,
+				}				
+			} 
+		}
+	`);
+  const map = new Map(talentGroup.map((group) => [group.name, group]));
+  console.log(map);
   return (
     <main id="page_talents">
-      <TalentSelection />
+      <TalentSelection data={map} />
     </main>
   );
 }
