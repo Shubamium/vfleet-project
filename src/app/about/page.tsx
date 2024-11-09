@@ -2,7 +2,14 @@ import Link from "next/link";
 import GeneralBG from "../component/generalBG/GeneralBG";
 import GeneralHeading from "../component/generalHeading/GeneralHeading";
 import "./about.scss";
-export default function AboutPage() {
+import { fetchData } from "@/db/client";
+export default async function AboutPage() {
+  const generalData = await fetchData<any>(`
+		*[_type == 'general' && preset == 'main']{
+			'a1_art':a1_art->url,
+			'a2_art': a2_art->url,
+		}[0]
+	`);
   return (
     <main id="page_about">
       <GeneralBG />
@@ -34,7 +41,7 @@ export default function AboutPage() {
         <div className="side">
           <div className="div"></div>
           <figure>
-            <img src="/gfx/sectionart1.png" alt="" />
+            <img src={generalData.a1_art ?? "/gfx/sectionart1.png"} alt="" />
           </figure>
         </div>
         <div className="confine">
@@ -53,7 +60,7 @@ export default function AboutPage() {
       <section className="basic-section reverse">
         <div className="side">
           <figure>
-            <img src="/gfx/sectionart2.png" alt="" />
+            <img src={generalData.a2_art ?? "/gfx/sectionart2.png"} alt="" />
           </figure>
           <div className="div"></div>
         </div>

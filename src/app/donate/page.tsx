@@ -1,7 +1,14 @@
+import { fetchData, urlFor } from "@/db/client";
 import GeneralBG from "../component/generalBG/GeneralBG";
 import GeneralHeading from "../component/generalHeading/GeneralHeading";
 import "./donate.scss";
-export default function Donate() {
+export default async function Donate() {
+  const donationList = await fetchData<any[]>(`
+			*[_type == 'donation']{
+			...
+			}
+	`);
+
   return (
     <main id="page_donate">
       <GeneralBG />
@@ -14,7 +21,37 @@ export default function Donate() {
       </section>
       <section id="donation-list">
         <div className="confine">
-          <div className="donation">
+          {donationList &&
+            donationList.map((item, index) => {
+              return (
+                <div className="donation" key={"donate_list" + item._id}>
+                  <img
+                    src={
+                      urlFor(item.image).url() ??
+                      "/gfx/museum-image-placeholder.png"
+                    }
+                    alt=""
+                    className="donation-image"
+                  />
+                  <img src="/de/ship-decor.png" alt="" className="ship-decor" />
+                  <div className="content">
+                    <h2 className="common-h">{item.name} </h2>
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      className="btn btn-triangle "
+                    >
+                      DONATE
+                      <div className="endbits">
+                        <div className="a"></div>
+                        <div className="b"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          {/* <div className="donation">
             <img
               src="/gfx/museum-image-placeholder.png"
               alt=""
@@ -211,25 +248,7 @@ export default function Donate() {
                 </div>
               </a>
             </div>
-          </div>
-          <div className="donation">
-            <img
-              src="/gfx/museum-image-placeholder.png"
-              alt=""
-              className="donation-image"
-            />
-            <img src="/de/ship-decor.png" alt="" className="ship-decor" />
-            <div className="content">
-              <h2 className="common-h"> USS LEXINGTON MUSEUM</h2>
-              <a href="#" target="_blank" className="btn btn-triangle ">
-                DONATE
-                <div className="endbits">
-                  <div className="a"></div>
-                  <div className="b"></div>
-                </div>
-              </a>
-            </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

@@ -190,7 +190,7 @@
     pointer-events: none;
     .bg-right {
       position: relative;
-      pointer-events: all;
+      pointer-events: auto;
     }
     .bg-left {
       // display: none;
