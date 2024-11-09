@@ -207,6 +207,8 @@ main {
     svg {
       width: 20px;
       fill: var(--color);
+      scale: 1.2;
+
       path {
         fill: var(--color);
       }

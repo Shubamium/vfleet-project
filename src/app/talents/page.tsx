@@ -19,7 +19,7 @@ export default async function TalentPage() {
 		}
 	`);
   const map = new Map(talentGroup.map((group) => [group.name, group]));
-  console.log(map);
+  // console.log(map);
   return (
     <main id="page_talents">
       <TalentSelection data={map} />

@@ -26,6 +26,6 @@ export default async function TalentPage({ params }: Props) {
 	`);
 
   if (!data) redirect("/talents");
-  console.log(data);
+  // console.log(data);
   return <TalentPreviewer t={data} />;
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import "./header.scss";
 import { BiMenu } from "react-icons/bi";
+import { FaAnchor } from "react-icons/fa";
+import ScrollAnchor from "./scrollAnchor/ScrollAnchor";
 export default function Header() {
   return (
     <header id="header">
@@ -37,6 +39,7 @@ export default function Header() {
           <button className="btn btn-openside">
             <BiMenu />
           </button>
+          <ScrollAnchor />
         </div>
       </div>
     </header>
