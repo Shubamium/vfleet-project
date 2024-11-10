@@ -23,7 +23,7 @@ export default function TalentPreviewer({ t }: Props) {
             className="talent"
           />
           <img
-            src={cusUrlFor(t.art.detail_main)?.height(1080).url()}
+            src={cusUrlFor(t.art.detail_main)?.height(1580).url()}
             alt=""
             className="talent-tall-art"
           />
@@ -164,12 +164,20 @@ export default function TalentPreviewer({ t }: Props) {
         <div className="bg-right">
           <div className="overlay"></div>
           <img
-            src={cusUrlFor(t.art.detail_full)?.width(1920).url()}
+            src={cusUrlFor(t.art.detail_full)?.height(1080).url()}
             alt=""
             className="talent-full-art"
           />
-          <img src={urlFor(t.art.icon).url()} alt="" className="icon" />
-          <img src={urlFor(t.art.logo).url()} alt="" className="logo" />
+          <img
+            src={cusUrlFor(t.art.icon)?.width(400).url()}
+            alt=""
+            className="icon"
+          />
+          <img
+            src={cusUrlFor(t.art.logo)?.width(400).url()}
+            alt=""
+            className="logo"
+          />
           <button
             className="btn btn-triangle reverse btn-full yellow "
             onClick={() => {

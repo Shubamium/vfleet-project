@@ -84,6 +84,12 @@ const TalentCard = ({ position, talentData }: TalentProp) => {
       href={`/talent/${talentData.slug}`}
       className={`talent-card ${classList[position] ?? "hidden"} `}
     >
+      <div className="corner-list">
+        <div className="corner tl "></div>
+        <div className="corner tr"></div>
+        <div className="corner br"></div>
+        <div className="corner bl"></div>
+      </div>
       <img
         src={talentData.art.list_background ?? "/bg/card-background.png"}
         alt=""
@@ -93,6 +99,8 @@ const TalentCard = ({ position, talentData }: TalentProp) => {
       <img src={talentData.art.list} alt="" className="talent-art" />
       <img src={talentData.art.icon} className="icon" />
       <img src={talentData.art.logo} className="logo" />
+      <img src={"/de/side-warn-blue.png"} className="sidewarn b" />
+      <img src={"/de/side-warn-gold.png"} className="sidewarn g" />
       <div className="arrow l"></div>
       <div className="arrow r"></div>
       <div className="data">

@@ -1,4 +1,4 @@
-import { fetchData, urlFor } from "@/db/client";
+import { cusUrlFor, fetchData, urlFor } from "@/db/client";
 import GeneralBG from "../component/generalBG/GeneralBG";
 import GeneralHeading from "../component/generalHeading/GeneralHeading";
 import "./donate.scss";
@@ -27,7 +27,7 @@ export default async function Donate() {
                 <div className="donation" key={"donate_list" + item._id}>
                   <img
                     src={
-                      urlFor(item.image).url() ??
+                      cusUrlFor(item.image)?.height(500).url() ??
                       "/gfx/museum-image-placeholder.png"
                     }
                     alt=""
