@@ -3,7 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
 import { PortableText } from "next-sanity";
-import { urlFor } from "@/db/client";
+import { cusUrlFor, urlFor } from "@/db/client";
 import { FaTwitch, FaYoutube } from "react-icons/fa";
 type Props = {
   t: any;
@@ -17,9 +17,13 @@ export default function TalentPreviewer({ t }: Props) {
         <div className="bg-left"></div>
         <div className="bg-right">
           <div className="ov-hexa dw"></div>
-          <img src={urlFor(t.art.background).url()} alt="" className="talent" />
           <img
-            src={urlFor(t.art.detail_main).url()}
+            src={cusUrlFor(t.art.background)?.height(1080).url()}
+            alt=""
+            className="talent"
+          />
+          <img
+            src={cusUrlFor(t.art.detail_main)?.height(1080).url()}
             alt=""
             className="talent-tall-art"
           />
@@ -160,7 +164,7 @@ export default function TalentPreviewer({ t }: Props) {
         <div className="bg-right">
           <div className="overlay"></div>
           <img
-            src={urlFor(t.art.detail_full).url()}
+            src={cusUrlFor(t.art.detail_full)?.width(1920).url()}
             alt=""
             className="talent-full-art"
           />

@@ -1,5 +1,6 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
+import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 
 export const client = createClient({
   projectId: "3fzujre3",
@@ -9,8 +10,8 @@ export const client = createClient({
 });
 
 const builder = imageUrlBuilder(client);
-
-export function urlFor(source: any) {
+builder.format("webp");
+export function urlFor(source: any): { url: () => string } | ImageUrlBuilder {
   if (!source)
     return {
       url: () =>
@@ -19,6 +20,10 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
+export function cusUrlFor(source: any) {
+  if (!source) return null;
+  return builder.image(source);
+}
 const config = {
   next: {
     revalidate: 5,

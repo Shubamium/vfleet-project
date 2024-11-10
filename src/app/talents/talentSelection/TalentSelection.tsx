@@ -1,19 +1,20 @@
 "use client";
 
-import { urlFor } from "@/db/client";
+import { cusUrlFor, urlFor } from "@/db/client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
+import * as motion from "framer-motion/client";
+import { AnimatePresence } from "framer-motion";
 type TalentCardData = {
   name: string;
   title: string;
   art: {
-    icon: string;
-    list: string;
+    icon?: string;
+    list?: string;
     list_background?: string;
-    logo: string;
-    background: string;
+    logo?: string;
+    background?: string;
   };
   slug: string;
 };
@@ -118,15 +119,16 @@ export default function TalentSelection({ data }: Props) {
   const [positionList, setPositionList] = useState<number[]>([]);
   const [toRender, setToRender] = useState<TalentCardData[]>([]);
   const [activeCat, setActiveCat] = useState<string>(genList[0]);
+
   const [activeTalent, setActiveTalent] = useState<{
-    bg: string | null;
+    bg?: string;
     name: string;
     title: string;
   }>({
-    bg: null,
     name: "",
     title: "",
   });
+
   // Debouncer
   const [debouncer, setdebouncer] = useState(false);
 
@@ -160,11 +162,13 @@ export default function TalentSelection({ data }: Props) {
       shifted.push(head);
     }
     setPositionList([...shifted]);
+
+    reselectBackgroundTalent([...shifted]);
   };
 
   let fillToFit = (origin: TalentCardData[]) => {
     if (origin.length === 0) return [];
-    let minimum = 10;
+    let minimum = 5;
     let target = [...origin];
     while (target.length < minimum) {
       target.push(...origin);
@@ -173,11 +177,15 @@ export default function TalentSelection({ data }: Props) {
       return {
         ...tar,
         art: {
-          icon: urlFor(tar.art.icon).url(),
-          logo: urlFor(tar.art.logo).url(),
-          list: urlFor(tar.art.list).url(),
-          list_background: urlFor(tar.art.list_background).url(),
-          background: urlFor(tar.art.background).url(),
+          icon: cusUrlFor(tar.art.icon)?.width(200).url(),
+          logo: cusUrlFor(tar.art.logo)?.width(200).url(),
+          list: cusUrlFor(tar.art.list)?.fit("scale").width(700).url(),
+          list_background: cusUrlFor(tar.art.list_background)?.width(720).url(),
+          background: cusUrlFor(tar.art.background)
+            ?.auto("format")
+            .width(1080)
+            .saturation(-100)
+            .url(),
         },
       };
     });
@@ -191,19 +199,25 @@ export default function TalentSelection({ data }: Props) {
     setPositionList(fitted.map((_, i) => i));
   }, [data, activeCat]);
 
-  useEffect(() => {
-    let target = positionList[positionList.findIndex((val) => val === 3)];
+  const reselectBackgroundTalent = (pos: number[]) => {
+    let target = pos.findIndex((n) => n === 3);
 
-    if (target && toRender[target]) {
+    if (target !== -1) {
       // let bg = urlFor(toRender[target].art.background).url();
-      // console.log("found index 3", target, toRender, positionList);
-      setActiveTalent({
-        bg: toRender[target].art.background,
-        name: toRender[target].name,
-        title: toRender[target].title,
-      });
+      let p = toRender[target % toRender.length];
+      console.log("found index ", target, pos, p);
+
+      if (p) {
+        setActiveTalent({
+          bg: p.art.background,
+          name: p.name,
+          title: p.title,
+        });
+      }
     }
-  }, [positionList]);
+  };
+
+  // useEffect(() => {}, [positionList]);
 
   return (
     <>
@@ -214,13 +228,32 @@ export default function TalentSelection({ data }: Props) {
         </div>
         <div className="right">
           <div className="hexa"></div>
-          <p className="title dw">{activeTalent.title}</p>
+          <AnimatePresence>
+            <p className="title dw"> {activeTalent.title}</p>
 
-          <img
-            src={activeTalent.bg ?? "/gfx/talent-background-sample-art.png"}
-            alt=""
-            className="talent"
-          />
+            <motion.img
+              src={activeTalent.bg ?? "/gfx/talent-background-sample-art.png"}
+              alt=""
+              initial={{
+                opacity: 0,
+                y: "-100vh",
+              }}
+              animate={{
+                opacity: 0.1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: "100vh",
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              key={"bg-image-" + activeTalent.bg}
+              className="talent"
+            />
+          </AnimatePresence>
         </div>
       </div>
       <section id="talent-heading" className="confine">

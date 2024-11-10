@@ -40,8 +40,9 @@
         top: 10%;
         left: 0%;
         width: 100%;
+        scale: 1;
         position: absolute;
-        height: 100%;
+        height: var(--max-height);
         object-fit: cover;
         object-position: top;
         transition-delay: 500ms;
@@ -142,6 +143,7 @@
         border: 1px solid var(--blue);
         gap: 0.5em;
         position: relative;
+        min-height: 220px;
         .chibi {
           position: absolute;
           width: 200px;
