@@ -113,9 +113,12 @@
         .hero-art {
           position: absolute;
           right: -300px;
+          transform-origin: left;
           bottom: 0%;
-          height: 80%;
+          height: 85%;
+          left: -500px;
           object-fit: contain;
+          object-position: bottom;
           // background: red;
           // max-width: 500px;
         }

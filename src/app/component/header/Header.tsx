@@ -49,7 +49,13 @@ export default function Header() {
           >
             <span>NEWS</span>
           </Link>
-          <a href={"#"} target="_blank" className={`btn btn-nav`}>
+          <a
+            href={
+              "https://merch.kawaentertainment.com/collections/vfleet-project"
+            }
+            target="_blank"
+            className={`btn btn-nav`}
+          >
             <span>MERCH</span>
           </a>
           <Link

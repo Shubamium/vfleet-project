@@ -192,7 +192,7 @@ export default function TalentSelection({ data }: Props) {
       // let bg = urlFor(toRender[target].art.background).url();
       // console.log("found index 3", target, toRender, positionList);
       setActiveTalent({
-        bg: toRender[target].art.background,
+        // bg: toRender[target].art.background,
         name: toRender[target].name,
         title: toRender[target].title,
       });
