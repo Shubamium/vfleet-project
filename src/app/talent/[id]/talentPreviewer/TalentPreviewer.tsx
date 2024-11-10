@@ -54,29 +54,31 @@ export default function TalentPreviewer({ t }: Props) {
       <section id="talent-detail" className="content confine">
         <div className="detail">
           <div className="top-detail">
-            <div className="socials">
-              <a
-                href={t.socials.twitter}
-                target="_blank"
-                className="btn btn-social"
-              >
-                <FaXTwitter />
-              </a>
-              <a
-                href={t.socials.twitch}
-                target="_blank"
-                className="btn btn-social"
-              >
-                <FaTwitch />
-              </a>
-              <a
-                href={t.socials.youtube}
-                target="_blank"
-                className="btn btn-social"
-              >
-                <FaYoutube />
-              </a>
-            </div>
+            {t.socials && (
+              <div className="socials">
+                <a
+                  href={t.socials.twitter}
+                  target="_blank"
+                  className="btn btn-social"
+                >
+                  <FaXTwitter />
+                </a>
+                <a
+                  href={t.socials.twitch}
+                  target="_blank"
+                  className="btn btn-social"
+                >
+                  <FaTwitch />
+                </a>
+                <a
+                  href={t.socials.youtube}
+                  target="_blank"
+                  className="btn btn-social"
+                >
+                  <FaYoutube />
+                </a>
+              </div>
+            )}
 
             <div className="names">
               <div className="title">
