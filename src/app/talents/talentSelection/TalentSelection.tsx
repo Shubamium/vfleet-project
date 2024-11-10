@@ -11,6 +11,7 @@ type TalentCardData = {
   art: {
     icon: string;
     list: string;
+    list_background?: string;
     logo: string;
     background: string;
   };
@@ -82,7 +83,11 @@ const TalentCard = ({ position, talentData }: TalentProp) => {
       href={`/talent/${talentData.slug}`}
       className={`talent-card ${classList[position] ?? "hidden"} `}
     >
-      <img src="/bg/card-background.png" alt="" className="card-bg" />
+      <img
+        src={talentData.art.list_background ?? "/bg/card-background.png"}
+        alt=""
+        className="card-bg"
+      />
       <img src="/bg/white-texture.png" alt="" className="card-bg texture" />
       <img src={talentData.art.list} alt="" className="talent-art" />
       <img src={talentData.art.icon} className="icon" />
@@ -171,6 +176,7 @@ export default function TalentSelection({ data }: Props) {
           icon: urlFor(tar.art.icon).url(),
           logo: urlFor(tar.art.logo).url(),
           list: urlFor(tar.art.list).url(),
+          list_background: urlFor(tar.art.list_background).url(),
           background: urlFor(tar.art.background).url(),
         },
       };

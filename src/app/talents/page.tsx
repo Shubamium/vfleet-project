@@ -12,6 +12,7 @@ export default async function TalentPage() {
 				'slug':  slug.current,
 				art{
 					list,
+					list_background,
 					logo,
 					icon,
 					background,
