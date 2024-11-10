@@ -3,6 +3,7 @@
   .left {
   }
   #hero_section {
+    overflow: hidden;
     .background {
       position: absolute;
       // background: red;
@@ -202,9 +203,9 @@
           scale: 1.2;
         }
       }
-      background: red;
+      // background: red;
       img {
-        transition: all 500ms ease;
+        transition: scale 500ms ease;
         width: 100%;
         height: 100%;
         object-fit: cover;

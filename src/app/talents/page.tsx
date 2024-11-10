@@ -14,6 +14,7 @@ export default async function TalentPage() {
 					list,
 					logo,
 					icon,
+					background,
 				}				
 			} 
 		}

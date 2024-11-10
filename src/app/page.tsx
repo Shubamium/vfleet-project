@@ -1,5 +1,14 @@
+import { fetchData, urlFor } from "@/db/client";
+import HeroCycle from "./heroCycle/HeroCycle";
 import "./home.scss";
-export default function Home() {
+export default async function Home() {
+  const generalData = await fetchData<any>(`
+		*[_type == 'general' && preset == 'main']{
+			hero_section , 
+			talent_section,
+	}[0]
+	`);
+  console.log(generalData);
   return (
     <main id="page_home" className={""}>
       <section id="hero_section">
@@ -58,9 +67,13 @@ export default function Home() {
               </button>
             </div>
           </article>
-          <figure className="right">
-            <img src="/gfx/hero_art.png" alt="" className="hero-art" />
-          </figure>
+          <HeroCycle
+            artList={
+              generalData.hero_section.map((image: any) =>
+                urlFor(image).url()
+              ) ?? ["/gfx/hero_art.png", "/gfx/hero_art2.png"]
+            }
+          />
           <div className="overlay dw"></div>
         </div>
       </section>
@@ -102,9 +115,14 @@ export default function Home() {
               </div>
             </button>
           </div>
-          <div className="right">
-            <img src="/gfx/talent_art.png" alt="" />
-          </div>
+          <HeroCycle
+            artList={
+              generalData.talent_section.map((image: any) =>
+                urlFor(image).url()
+              ) ?? ["/gfx/talent_art.png", "/gfx/talent_art.png"]
+            }
+            duration={3000}
+          />
         </div>
       </section>
 

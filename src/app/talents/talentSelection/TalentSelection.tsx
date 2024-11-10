@@ -12,6 +12,7 @@ type TalentCardData = {
     icon: string;
     list: string;
     logo: string;
+    background: string;
   };
   slug: string;
 };
@@ -75,6 +76,7 @@ type TalentProp = {
 };
 const TalentCard = ({ position, talentData }: TalentProp) => {
   // let talentData = talend;
+
   return (
     <Link
       href={`/talent/${talentData.slug}`}
@@ -111,7 +113,15 @@ export default function TalentSelection({ data }: Props) {
   const [positionList, setPositionList] = useState<number[]>([]);
   const [toRender, setToRender] = useState<TalentCardData[]>([]);
   const [activeCat, setActiveCat] = useState<string>(genList[0]);
-
+  const [activeTalent, setActiveTalent] = useState<{
+    bg: string | null;
+    name: string;
+    title: string;
+  }>({
+    bg: null,
+    name: "",
+    title: "",
+  });
   // Debouncer
   const [debouncer, setdebouncer] = useState(false);
 
@@ -154,7 +164,18 @@ export default function TalentSelection({ data }: Props) {
     while (target.length < minimum) {
       target.push(...origin);
     }
-    return target;
+    let fixed = target.map((tar) => {
+      return {
+        ...tar,
+        art: {
+          icon: urlFor(tar.art.icon).url(),
+          logo: urlFor(tar.art.logo).url(),
+          list: urlFor(tar.art.list).url(),
+          background: urlFor(tar.art.background).url(),
+        },
+      };
+    });
+    return fixed;
   };
 
   useEffect(() => {
@@ -164,13 +185,33 @@ export default function TalentSelection({ data }: Props) {
     setPositionList(fitted.map((_, i) => i));
   }, [data, activeCat]);
 
+  useEffect(() => {
+    let target = positionList[positionList.findIndex((val) => val === 3)];
+
+    if (target && toRender[target]) {
+      // let bg = urlFor(toRender[target].art.background).url();
+      // console.log("found index 3", target, toRender, positionList);
+      setActiveTalent({
+        bg: toRender[target].art.background,
+        name: toRender[target].name,
+        title: toRender[target].title,
+      });
+    }
+  }, [positionList]);
+
   return (
     <>
       <div className="fullscreen-bg">
-        <div className="left"></div>
+        <div className="left">
+          <p className="name dw">{activeTalent.name}</p>
+          <div className="scroll-text dw"></div>
+        </div>
         <div className="right">
+          <div className="hexa"></div>
+          <p className="title dw">{activeTalent.title}</p>
+
           <img
-            src="/gfx/talent-background-sample-art.png"
+            src={activeTalent.bg ?? "/gfx/talent-background-sample-art.png"}
             alt=""
             className="talent"
           />
@@ -186,14 +227,7 @@ export default function TalentSelection({ data }: Props) {
           return (
             <TalentCard
               position={positionList[index]}
-              talentData={{
-                ...data,
-                art: {
-                  icon: urlFor(data.art.icon).url(),
-                  logo: urlFor(data.art.logo).url(),
-                  list: urlFor(data.art.list).url(),
-                },
-              }}
+              talentData={data}
               key={"card-el" + index}
             />
           );

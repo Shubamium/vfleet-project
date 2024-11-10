@@ -16,6 +16,7 @@ export default function TalentPreviewer({ t }: Props) {
       <div className="main-bg">
         <div className="bg-left"></div>
         <div className="bg-right">
+          <div className="ov-hexa dw"></div>
           <img src={urlFor(t.art.background).url()} alt="" className="talent" />
           <img
             src={urlFor(t.art.detail_main).url()}
