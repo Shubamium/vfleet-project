@@ -2,6 +2,20 @@
   margin-top: 100px;
   position: relative;
   overflow: hidden;
+
+  .planetop {
+    position: absolute;
+    top: -5%;
+    left: 2%;
+    transform-origin: bottom;
+
+    &.r {
+      left: initial;
+      right: 2%;
+      top: 0%;
+      scale: -1 1;
+    }
+  }
   .top-decor {
     min-height: 300px;
     background: url("/bg/sky-bg.png");

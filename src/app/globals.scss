@@ -62,6 +62,27 @@ button {
   &.s {
     color: var(--grey);
   }
+  position: relative;
+  &.flag {
+    width: max-content;
+    &.rv {
+      &::before {
+        scale: -1 1;
+        left: initial;
+        right: 105%;
+        position: absolute;
+      }
+    }
+    &::before {
+      left: 107%;
+      width: 25px;
+      height: 25px;
+      background: var(--blue);
+      content: "";
+      clip-path: polygon(0 0, 0% 100%, 100% 0);
+      position: absolute;
+    }
+  }
 }
 .common-sh {
   font-size: 1.8rem;

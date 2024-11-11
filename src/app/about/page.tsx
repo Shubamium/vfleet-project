@@ -47,7 +47,7 @@ export default async function AboutPage() {
         <div className="confine">
           <article className="basic-article">
             <p className="common-sh">SUB HEADING 1</p>
-            <p className="common-h s">OUR CORE VALUES</p>
+            <p className="common-h s flag">OUR CORE VALUES</p>
             <p className="common-p">
               (Placholder A1)VFleet is a Vtuber Company that prioritizes the
               needs of talents as well as works towards spreading awareness,
@@ -69,7 +69,7 @@ export default async function AboutPage() {
 
           <article className="basic-article">
             <p className="common-sh">SUB HEADING 1</p>
-            <p className="common-h s">OUR CORE VALUES</p>
+            <p className="common-h s flag rv">OUR CORE VALUES</p>
             <p className="common-p">
               (Placholder A1)VFleet is a Vtuber Company that prioritizes the
               needs of talents as well as works towards spreading awareness,
@@ -87,7 +87,11 @@ export default async function AboutPage() {
           <div className="line"></div>
           <img src="/gfx/icon_black.png" alt="" className="icon" />
           <h2 className="common-sh">CONTRIBUTION</h2>
-          <h2 className="common-h">DONATIONS & SUPPORT</h2>
+          <div className="head">
+            <img src="/de/title-side.svg" alt="" className="side l" />
+            <h2 className="common-h">DONATIONS & SUPPORT</h2>
+            <img src="/de/title-side.svg" alt="" className="side r" />
+          </div>
           <p className="common-p">
             We encourage you to support our talents on their streaming journeys,
             however, VFleet asks you to consider donating to the nonprofit naval

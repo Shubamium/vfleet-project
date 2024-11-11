@@ -1,6 +1,21 @@
 #page_news {
   padding-top: 300px;
   min-height: 2500px;
+  .plane-bg {
+    position: absolute;
+    right: -20%;
+    opacity: 0.05;
+    scale: 0.76;
+    top: -200px;
+    z-index: -2;
+
+    &.r {
+      right: initial;
+      left: -450px;
+      scale: -0.76;
+      top: 10%;
+    }
+  }
   #news-heading {
     .common-p {
       font-size: 1rem;
@@ -36,6 +51,9 @@
   }
 
   #news-list {
+    overflow: hidden;
+    position: relative;
+    min-height: 1000px;
     .category-select {
       background: rgba(10, 10, 20, 0.842);
       border-top: 3px solid var(--blue);

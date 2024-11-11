@@ -1,3 +1,5 @@
+"use client";
+import * as motion from "framer-motion/client";
 import Link from "next/link";
 import "./footer.scss";
 import { FaDiscord, FaHeart } from "react-icons/fa";
@@ -6,6 +8,26 @@ export default function Footer() {
   return (
     <footer id="footer">
       <div className="top-decor">a</div>
+      <motion.img
+        initial={{ y: 200, x: -100 }}
+        whileInView={{ y: 1, x: 0 }}
+        transition={{
+          duration: 1,
+        }}
+        src="/de/footer-plane.png"
+        alt=""
+        className="planetop l"
+      />
+      <motion.img
+        initial={{ y: 200, x: -100 }}
+        whileInView={{ y: -50, x: 0 }}
+        transition={{
+          duration: 1,
+        }}
+        src="/de/footer-plane.png"
+        alt=""
+        className="planetop r"
+      />
       <div className="decor-l dw">
         <img src="/de/footer-l.png" alt="" />
       </div>
@@ -43,9 +65,7 @@ export default function Footer() {
                   News
                 </Link>
                 <Link
-                  href={
-                    "https://merch.kawaentertainment.com/collections/vfleet-project"
-                  }
+                  href={"https://merch.kawaentertainment.com/"}
                   target="_blank"
                   className="btn btn-mini-nav"
                 >

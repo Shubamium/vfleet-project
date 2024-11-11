@@ -38,6 +38,10 @@
     margin-top: 100px;
     padding-top: 50px;
     padding-bottom: 200px;
+    .confine {
+      max-width: min(90%, 800px);
+    }
+
     h1,
     h2,
     h3,
@@ -84,6 +88,7 @@
     background: url("/bg/sea-bg2.png");
     background-size: cover;
     .confine {
+      max-width: min(90%, 900px);
       .footer-content {
         display: flex;
         justify-content: space-between;
@@ -117,7 +122,7 @@
       img {
         width: 100%;
         object-fit: contain;
-        height: 600px;
+        height: 500px;
       }
     }
   }

@@ -9,7 +9,6 @@ export default async function Home() {
 			talent_section,
 	}[0]
 	`);
-  console.log(generalData);
   return (
     <main id="page_home" className={""}>
       <section id="hero_section">
@@ -83,8 +82,8 @@ export default async function Home() {
         <div className="background"></div>
         <div className="confine">
           <div className="left">
-            <h2>TALENTS</h2>
-            <p>
+            <h2 className="common-h s flag">TALENTS</h2>
+            <p className="common-p">
               (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -133,8 +132,8 @@ export default async function Home() {
         <div className="confine">
           <div className="left"></div>
           <div className="right">
-            <h2>CONTACT</h2>
-            <p>
+            <h2 className="common-h s flag">CONTACT</h2>
+            <p className="common-p">
               (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris

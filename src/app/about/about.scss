@@ -120,6 +120,10 @@
         grid-template-columns: 1.5fr 1fr;
         .basic-article {
           text-align: right;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          flex-direction: column;
         }
       }
     }
@@ -132,6 +136,16 @@
     min-height: 1000px;
     align-items: center;
     text-align: center;
+
+    .head {
+      display: flex;
+      gap: 2em;
+      .side {
+        &.r {
+          scale: -1 1;
+        }
+      }
+    }
 
     .plane-art {
       img {

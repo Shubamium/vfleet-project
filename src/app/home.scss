@@ -160,7 +160,7 @@
       rotate: -1deg;
       width: 100%;
       object-fit: contain;
-      transform: translateY(5%);
+      transform: translateY(6%);
       height: 100%;
       g {
         transform-origin: bottom;
@@ -196,10 +196,10 @@
         flex-direction: column;
         padding-right: 2em;
         width: 100%;
-        h2 {
+        .common-h {
           font-size: 3.4rem;
         }
-        p {
+        .common-p {
           margin: 1em 0;
         }
 

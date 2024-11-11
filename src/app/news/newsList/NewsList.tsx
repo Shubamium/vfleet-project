@@ -35,6 +35,8 @@ export default function NewsList({ list, categories }: Props) {
   }, [selectedCategory]);
   return (
     <section id="news-list">
+      <img src="/de/plane-bg.png" alt="" className="plane-bg l" />
+      <img src="/de/plane-bg.png" alt="" className="plane-bg r" />
       <div className="category-select">
         <div className="confine">
           <button
