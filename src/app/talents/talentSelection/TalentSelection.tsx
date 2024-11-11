@@ -176,7 +176,7 @@ export default function TalentSelection({ data }: Props) {
 
   let fillToFit = (origin: TalentCardData[]) => {
     if (origin.length === 0) return [];
-    let minimum = 5;
+    let minimum = 10;
     let target = [...origin];
     while (target.length < minimum) {
       target.push(...origin);
@@ -210,12 +210,20 @@ export default function TalentSelection({ data }: Props) {
   }, [data, activeCat]);
 
   const reselectBackgroundTalent = (pos: number[], list: TalentCardData[]) => {
-    console.log("reselecting");
+    // console.log("reselecting");
+    if (list.length === 0) {
+      setActiveTalent({
+        bg: "empty",
+        name: "",
+        title: "",
+      });
+    }
+
     let target = pos.findIndex((n) => n === 3);
     if (target !== -1) {
       // let bg = urlFor(toRender[target].art.background).url();
       let p = list[target % list.length];
-      console.log("found index ", target, pos, p);
+      // console.log("found index ", target, pos, p);
 
       if (p) {
         setActiveTalent({
