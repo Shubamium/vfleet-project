@@ -101,6 +101,9 @@ html {
 body {
   background: #0c0f13;
   border-bottom: 3px solid var(--gold);
+  &:has(#main-loading) {
+    overflow: hidden;
+  }
 }
 
 main {
