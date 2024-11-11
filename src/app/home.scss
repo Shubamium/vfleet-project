@@ -132,6 +132,16 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: hidden;
+    .plane {
+      rotate: -1deg;
+      width: 100%;
+      object-fit: contain;
+      transform: translateY(20%);
+      g {
+        transform-origin: bottom;
+      }
+    }
     // background-size: 100%;
   }
 

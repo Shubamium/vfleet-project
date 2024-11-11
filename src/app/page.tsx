@@ -1,6 +1,7 @@
 import { cusUrlFor, fetchData, urlFor } from "@/db/client";
 import HeroCycle from "./heroCycle/HeroCycle";
 import "./home.scss";
+import FleetAnimation from "./fleetAnimation/FleetAnimation";
 export default async function Home() {
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
@@ -77,8 +78,7 @@ export default async function Home() {
           <div className="overlay dw"></div>
         </div>
       </section>
-
-      <section id="fleet-animation"></section>
+      <FleetAnimation />
       <section id="talent-rotate">
         <div className="background"></div>
         <div className="confine">
