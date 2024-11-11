@@ -126,18 +126,42 @@
     }
   }
   #fleet-animation {
-    min-height: 500px;
+    height: 400px;
     background: url("/bg/sky-bg.png");
     // background: scroll;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
+    position: relative;
+    .ship {
+      position: absolute;
+      bottom: -3%;
+      transform-origin: bottom;
+      &.la {
+        left: -4%;
+        z-index: 10;
+      }
+      &.lb {
+        left: 8%;
+      }
+
+      &.ra {
+        right: -5%;
+        scale: -1 1;
+        z-index: 10;
+      }
+      &.rb {
+        right: 5%;
+        scale: -1 1;
+      }
+    }
     .plane {
       rotate: -1deg;
       width: 100%;
       object-fit: contain;
-      transform: translateY(20%);
+      transform: translateY(5%);
+      height: 100%;
       g {
         transform-origin: bottom;
       }
@@ -157,6 +181,7 @@
       width: 100%;
       height: 100%;
       position: absolute;
+      mask-image: linear-gradient(to right, black, transparent 80%);
       z-index: -2;
       // right: 100%;
     }

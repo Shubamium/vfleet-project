@@ -18,6 +18,7 @@ export default async function TalentPage({ params }: Props) {
 				detail_main,
 				detail_full,
 				detail_small,
+				
 				background,
 				logo,
 				icon,

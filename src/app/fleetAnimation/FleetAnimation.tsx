@@ -31,6 +31,77 @@ export default function FleetAnimation({}: Props) {
 
   return (
     <section id="fleet-animation" ref={root}>
+      <motion.img
+        initial={{
+          x: -300,
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 50,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.9,
+        }}
+        src="/de/ship-gold.png"
+        alt=""
+        className="ship la"
+      />
+      <motion.img
+        initial={{
+          x: -400,
+          opacity: 0,
+        }}
+        whileInView={{
+          x: 0,
+          opacity: 1,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.9,
+          delay: 0.2,
+        }}
+        src="/de/ship-blue.png"
+        alt=""
+        className="ship lb"
+      />
+      <motion.img
+        initial={{
+          x: -400,
+          opacity: 0,
+        }}
+        whileInView={{
+          x: 80,
+          opacity: 1,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.9,
+          delay: 0.2,
+        }}
+        src="/de/ship-blue.png"
+        alt=""
+        className="ship rb"
+      />
+      <motion.img
+        initial={{
+          x: -100,
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 100,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 1.1,
+        }}
+        src="/de/ship-gold.png"
+        alt=""
+        className="ship ra"
+      />
+
       <svg
         width="550"
         height="456"
