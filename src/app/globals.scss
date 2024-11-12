@@ -83,6 +83,16 @@ button {
       position: absolute;
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+  @media screen and (max-width: 370px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 2rem;
+  }
 }
 .common-sh {
   font-size: 1.8rem;
@@ -90,10 +100,24 @@ button {
   line-height: 90%;
   font-weight: bold;
   text-shadow: 0px 0px 4px black;
+  @media screen and (max-width: 1024px) {
+    font-size: 1.2rem;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 1.1rem;
+  }
+  @media screen and (max-width: 370px) {
+    font-size: 1rem;
+    font-weight: normal;
+  }
 }
+
 .common-p {
   font-size: var(--grey);
   text-shadow: 0px 0px 4px black;
+  @media screen and (max-width: 1024px) {
+    font-size: 1rem;
+  }
 }
 
 html {

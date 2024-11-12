@@ -1,6 +1,10 @@
 .socials-list {
   display: flex;
   gap: 0.25em;
+  @media screen and (max-width: 350px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .btn-social {
     background: transparent;
     transition: all 50ms ease;

@@ -2,6 +2,7 @@ import { cusUrlFor, fetchData, urlFor } from "@/db/client";
 import HeroCycle from "./heroCycle/HeroCycle";
 import "./home.scss";
 import FleetAnimation from "./fleetAnimation/FleetAnimation";
+import Link from "next/link";
 export default async function Home() {
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
@@ -24,6 +25,7 @@ export default async function Home() {
         <div className="confine">
           <article className="left">
             <img src="/gfx/icon_main.png" alt="" className="icon dw" />
+            <img src="/gfx/logo_main.png" alt="" className="logo" />
             <div className="title">
               <h2 className="first">
                 <span className="outline">SAILING THE</span> VIRTUAL SEAS
@@ -46,7 +48,7 @@ export default async function Home() {
             </div>
 
             <div className="cta">
-              <button className="btn btn-triangle">
+              <Link href={"/about"} className="btn btn-triangle">
                 LEARN MORE ABOUT VFLEET
                 <div className="triangle">
                   <div className="arrow-line"></div>
@@ -64,7 +66,7 @@ export default async function Home() {
                     />
                   </svg>
                 </div>
-              </button>
+              </Link>
             </div>
           </article>
           <HeroCycle

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import * as motion from "framer-motion/client";
+import { useInView } from "framer-motion";
 
 type Props = {};
 
@@ -8,16 +9,19 @@ export default function FleetAnimation({}: Props) {
   let root = useRef(null);
   let planeVariant = {
     whileInView: {
-      y: 0,
+      y: 20,
     },
     initial: {
-      y: 200,
+      y: 400,
     },
   };
 
+  const isInView = useInView(root, {
+    amount: 0.8,
+  });
   const planeProp = {
     initial: "initial",
-    whileInView: "whileInView",
+    animate: isInView ? planeVariant.whileInView : planeVariant.initial,
     variants: planeVariant,
     transition: {
       duration: 1,
@@ -36,10 +40,17 @@ export default function FleetAnimation({}: Props) {
           x: -300,
           opacity: 0,
         }}
-        whileInView={{
-          opacity: 1,
-          x: 50,
-        }}
+        animate={
+          isInView
+            ? {
+                opacity: 1,
+                x: 50,
+              }
+            : {
+                x: -300,
+                opacity: 0,
+              }
+        }
         transition={{
           ease: "easeOut",
           duration: 0.9,
@@ -53,10 +64,17 @@ export default function FleetAnimation({}: Props) {
           x: -400,
           opacity: 0,
         }}
-        whileInView={{
-          x: 0,
-          opacity: 1,
-        }}
+        animate={
+          isInView
+            ? {
+                x: 0,
+                opacity: 1,
+              }
+            : {
+                x: -400,
+                opacity: 0,
+              }
+        }
         transition={{
           ease: "easeOut",
           duration: 0.9,
@@ -71,10 +89,17 @@ export default function FleetAnimation({}: Props) {
           x: -400,
           opacity: 0,
         }}
-        whileInView={{
-          x: 80,
-          opacity: 1,
-        }}
+        animate={
+          isInView
+            ? {
+                x: 80,
+                opacity: 1,
+              }
+            : {
+                x: -400,
+                opacity: 0,
+              }
+        }
         transition={{
           ease: "easeOut",
           duration: 0.9,
@@ -89,10 +114,17 @@ export default function FleetAnimation({}: Props) {
           x: -100,
           opacity: 0,
         }}
-        whileInView={{
-          opacity: 1,
-          x: 100,
-        }}
+        whileInView={
+          isInView
+            ? {
+                opacity: 1,
+                x: 100,
+              }
+            : {
+                x: -100,
+                opacity: 0,
+              }
+        }
         transition={{
           ease: "easeOut",
           duration: 1.1,
