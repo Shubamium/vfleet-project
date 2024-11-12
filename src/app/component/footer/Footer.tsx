@@ -2,7 +2,7 @@
 import * as motion from "framer-motion/client";
 import Link from "next/link";
 import "./footer.scss";
-import { FaDiscord, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import SocialList from "../socialList/SocialList";
 export default function Footer() {
   return (

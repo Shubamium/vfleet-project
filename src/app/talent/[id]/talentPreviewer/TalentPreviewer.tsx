@@ -98,7 +98,10 @@ export default function TalentPreviewer({ t }: Props) {
 
           <div className="info-table">
             <div className="chibi">
-              <img src={urlFor(t.art.detail_small).url()} alt="" />
+              <img
+                src={cusUrlFor(t.art.detail_small)?.width(200).url()}
+                alt=""
+              />
             </div>
             {t.info &&
               t.info.map((info: any, index: number) => {

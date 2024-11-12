@@ -67,6 +67,8 @@
         padding-left: 0;
         color: var(--dGrey);
         position: relative;
+
+        filter: drop-shadow(0px 0px 5px #04020e);
         &::before {
           content: "";
           scale: 0.25 1;
@@ -93,6 +95,38 @@
       &:hover {
         scale: initial;
       }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .right {
+      nav {
+        gap: 0.2em;
+        .btn-nav {
+          padding-right: 1.5em;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1080px) {
+    padding: 0;
+    .right {
+      padding: 1em;
+    }
+    .right nav .btn-nav {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .left .main-logo {
+      left: initial;
+      top: 20%;
+      max-width: 80%;
+    }
+    .right .side-menu .anchor-select {
+      display: none;
     }
   }
 }

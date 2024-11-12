@@ -60,7 +60,7 @@ export default function RootLayout({
           } as CSSProperties
         }
       >
-        <Loading />
+        {/* <Loading /> */}
         <Header />
         {children}
         <Footer />
