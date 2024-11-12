@@ -8,16 +8,17 @@ export default async function Donate() {
 			...
 			}
 	`);
-
+  const generalData = await fetchData<any>(`
+		*[_type == 'general' && preset == 'main']{
+			donation_text
+		}[0]
+	`);
+  const t = generalData.donation_text;
   return (
     <main id="page_donate">
       <GeneralBG />
       <section id="donation-heading">
-        <GeneralHeading
-          sub="SUPPORT"
-          h="DONATIONS"
-          d="(Placeholeder D1)VFleet is a Vtuber Company that prioritizes the needs of  talents as well as works towards spreading awareness, engagement, and  connection with Naval Museums around the world."
-        />
+        <GeneralHeading sub="SUPPORT" h="DONATIONS" d={t.d1} />
       </section>
       <section id="donation-list">
         <div className="confine">

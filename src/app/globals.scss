@@ -59,6 +59,7 @@ button {
   font-weight: bold;
   font-family: var(--fontH);
   line-height: 80%;
+  text-transform: uppercase;
   &.s {
     color: var(--grey);
   }
@@ -104,6 +105,7 @@ button {
   font-size: 1.8rem;
   color: var(--blue);
   line-height: 90%;
+  text-transform: uppercase;
   font-weight: bold;
   text-shadow: 0px 0px 4px black;
   @media screen and (max-width: 1024px) {

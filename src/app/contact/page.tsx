@@ -1,86 +1,13 @@
-"use client";
-import { FormEvent, useState } from "react";
-import GeneralBG from "../component/generalBG/GeneralBG";
-import GeneralHeading from "../component/generalHeading/GeneralHeading";
-import SocialList from "../component/socialList/SocialList";
-import "./contact.scss";
+import React from "react";
+import ContactPage from "./ContactPage";
+import ContactHeading from "./ContactHeading";
 
-import emailjs from "@emailjs/browser";
-import { LuLoader2 } from "react-icons/lu";
+type Props = {};
 
-emailjs.init({
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS,
-  limitRate: {
-    // Set the limit rate for the application
-    id: "app",
-    // Allow 1 request per 10s
-    throttle: 10000,
-  },
-});
-export default function ContactPage() {
-  let [loading, setLoading] = useState(false);
-
-  const submit = async (e: FormEvent) => {
-    setLoading(true), e.preventDefault();
-    let data = await emailjs.sendForm(
-      "vfleetproject@gmail.com",
-      "template_705268e",
-      (e.target as HTMLButtonElement).form ?? "#contact-section"
-    );
-
-    console.log(data);
-    setLoading(false);
-  };
+export default function page({}: Props) {
   return (
-    <main id="page_contact">
-      <div className={`loading ${loading ? "loaded" : "hidden"}`}>
-        {loading ? <LuLoader2 /> : <></>}
-        <p> {loading ? "Loading . . ." : "Form Submitted!"}</p>
-      </div>
-      <GeneralBG />
-      <section id="top-section">
-        <GeneralHeading
-          sub="REACH OUT"
-          h="CONTACT US"
-          d="(Placeholeder C1)VFleet is a Vtuber Company that prioritizes the needs of  talents as well as works towards spreading awareness, engagement, and  connection with Naval Museums around the world."
-        />
-        <a href=""></a>
-        <SocialList />
-      </section>
-
-      <form action="#" id="contact-section" onSubmit={submit}>
-        <div className="panel">
-          <div className="confine">
-            <div className="form-group">
-              <div className="fi">
-                <label htmlFor="from_name">Name</label>
-                <input type="text" name="from_name" placeholder="Your Name" />
-              </div>
-              <div className="fi">
-                <label htmlFor="email">Email:</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your.email@gmail.com"
-                />
-              </div>
-            </div>
-
-            <div className="fi">
-              <label htmlFor="message">MESSAGES:</label>
-
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Write your message here!"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-        <button type="submit" className="btn btn-special">
-          SUBMIT
-        </button>
-      </form>
-    </main>
+    <ContactPage>
+      <ContactHeading />
+    </ContactPage>
   );
 }

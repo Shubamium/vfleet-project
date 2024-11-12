@@ -6,6 +6,7 @@ import { CSSProperties } from "react";
 import Header from "./component/header/Header";
 import Footer from "./component/footer/Footer";
 import Loading from "./component/loading/Loading";
+import FooterTextProvider from "./component/footer/FooterTextProvider";
 
 const norfolk = localFont({
   src: "./fonts/norfolk.otf",
@@ -63,7 +64,7 @@ export default function RootLayout({
         {/* <Loading /> */}
         <Header />
         {children}
-        <Footer />
+        <FooterTextProvider />
       </body>
     </html>
   );

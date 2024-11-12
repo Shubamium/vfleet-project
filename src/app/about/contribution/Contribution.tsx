@@ -4,7 +4,7 @@ import * as motion from "framer-motion/client";
 import Link from "next/link";
 import { useRef } from "react";
 
-export default function Contribution() {
+export default function Contribution({ sh, h, p }: any) {
   const root = useRef(null);
   const isInView = useInView(root, {
     amount: 0.5,
@@ -32,7 +32,7 @@ export default function Contribution() {
       <article className="confine">
         <div className="line"></div>
         <img src="/gfx/icon_black.png" alt="" className="icon" />
-        <h2 className="common-sh">CONTRIBUTION</h2>
+        <h2 className="common-sh">{sh}</h2>
         <div className="head">
           <motion.img
             animate={
@@ -55,7 +55,7 @@ export default function Contribution() {
             alt=""
             className="side l"
           />
-          <h2 className="common-h">DONATIONS & SUPPORT</h2>
+          <h2 className="common-h">{h}</h2>
           <motion.img
             animate={
               isInView
@@ -78,13 +78,7 @@ export default function Contribution() {
             className="side r"
           />
         </div>
-        <p className="common-p">
-          We encourage you to support our talents on their streaming journeys,
-          however, VFleet asks you to consider donating to the nonprofit naval
-          and aerospace museums that inspired this project. If there is a museum
-          ship near you, we encourage not only a donation, but a visit as well!
-          Your support matters!
-        </p>
+        <p className="common-p">{p}</p>
       </article>
       <Link href={"/donate"} className="btn btn-special">
         DONATE

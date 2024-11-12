@@ -19,9 +19,16 @@ export default async function NewsRead({ params }: Props) {
 			'category': category -> name,
 	}[0]
 	`);
+
   if (!news) {
     redirect("/news");
   }
+  const generalData = await fetchData<any>(`
+		*[_type == 'general' && preset == 'main']{
+			news_text
+		}[0]
+	`);
+  const t = generalData.news_text;
   return (
     <main id="page_read">
       <section id="news-info" className="confine">
@@ -110,7 +117,7 @@ export default async function NewsRead({ params }: Props) {
         <div className="confine">
           <div className="footer-content">
             <div className="left">
-              <p>Some footer text here</p>
+              <p>{t.n2}</p>
               <SocialList />
             </div>
 

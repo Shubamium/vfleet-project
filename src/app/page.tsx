@@ -8,8 +8,10 @@ export default async function Home() {
 		*[_type == 'general' && preset == 'main']{
 			hero_section , 
 			talent_section,
+			home_text,
 	}[0]
 	`);
+  const t = generalData.home_text;
   return (
     <main id="page_home" className={""}>
       <section id="hero_section">
@@ -39,12 +41,7 @@ export default async function Home() {
               </h2>
             </div>
             <div className="desc">
-              <p>
-                (Placeholder H1) dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat.{" "}
-              </p>
+              <p>{t.h1}</p>
             </div>
 
             <div className="cta">
@@ -85,13 +82,7 @@ export default async function Home() {
         <div className="confine">
           <div className="left">
             <h2 className="common-h s flag">TALENTS</h2>
-            <p className="common-p">
-              (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehend
-            </p>
+            <p className="common-p">{t.h2}</p>
             <button className="btn btn-triangle yellow">
               SEE OUR TALENT
               <div className="triangle">
@@ -135,13 +126,7 @@ export default async function Home() {
           <div className="left"></div>
           <div className="right">
             <h2 className="common-h s flag">CONTACT</h2>
-            <p className="common-p">
-              (Placeholder H2) dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehend
-            </p>
+            <p className="common-p">{t.h3}</p>
             <button className="btn btn-triangle yellow">
               REACH OUT
               <div className="triangle">
@@ -254,13 +239,7 @@ export default async function Home() {
               </button>
             </div>
             <div className="right">
-              <p>
-                (PLACEHOLDER H4) ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse
-              </p>
+              <p>{t.h4}</p>
             </div>
           </div>
         </div>

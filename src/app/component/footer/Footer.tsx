@@ -4,7 +4,8 @@ import Link from "next/link";
 import "./footer.scss";
 import { FaHeart } from "react-icons/fa";
 import SocialList from "../socialList/SocialList";
-export default function Footer() {
+
+export default function Footer({ l, r }: any) {
   return (
     <footer id="footer">
       <div className="top-decor">a</div>
@@ -80,11 +81,7 @@ export default function Footer() {
               </div>
             </nav>
             <div className="additional-info">
-              <p>
-                (Optional Footer Disclaimer)Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis....
-              </p>
+              <p>{l}</p>
             </div>
           </div>
 
@@ -94,11 +91,7 @@ export default function Footer() {
                 <img src="/gfx/footer-art.png" alt="" className="footer-art" />
               </div>
               <div className="text-part">
-                <p>
-                  (Mini About)Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ut enim ad minim veniam, quis....
-                </p>
+                <p>{r}</p>
                 <div className="battery-contribute">
                   <h3> Want to Contribute?</h3>
                   <button className="btn btn-triangle ">

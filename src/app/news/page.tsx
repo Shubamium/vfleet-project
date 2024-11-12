@@ -19,6 +19,13 @@ export default async function NewsPage() {
 		...
 		}
 	`);
+
+  const generalData = await fetchData<any>(`
+		*[_type == 'general' && preset == 'main']{
+			news_text
+		}[0]
+	`);
+  const t = generalData.news_text;
   return (
     <main id="page_news">
       <GeneralBG />
@@ -30,13 +37,7 @@ export default async function NewsPage() {
           <div className="line"></div>
           <img src="/de/mini_plane-gold.png" alt="" className="plane" />
         </div>
-        <p className="common-p">
-          We encourage you to support our talents on their streaming journeys,
-          however, VFleet asks you to consider donating to the nonprofit naval
-          and aerospace museums that inspired this project. If there is a museum
-          ship near you, we encourage not only a donation, but a visit as well!
-          Your support matters!
-        </p>
+        <p className="common-p">{t.n1}</p>
       </section>
 
       <NewsList list={allNews} categories={allCategory} />
