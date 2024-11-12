@@ -108,6 +108,15 @@
     // gap: 30px;
     position: relative;
     height: 500px;
+    margin-bottom: 150px;
+    @media screen and (max-width: 1024px) {
+      transform: translateX(-200px);
+    }
+
+    @media screen and (max-width: 768px) {
+      transform: translateX(-400px);
+    }
+
     .talent-card {
       z-index: 2;
       width: 300px;
@@ -367,6 +376,18 @@
         opacity: 0;
       }
     }
+
+    @media screen and (max-width: 550px) {
+      height: 300px;
+      scale: 0.5;
+    }
+
+    @media screen and (max-width: 380px) {
+      // height: 250px;
+      margin-bottom: 80px;
+      scale: 0.4;
+      transform: translateX(-600px);
+    }
   }
 
   #generation-select {
@@ -426,5 +447,18 @@
     max-width: max-content;
     margin: 0 auto;
     margin-top: -100px;
+
+    @media screen and (max-width: 1024px) {
+      position: fixed;
+      right: 0%;
+      bottom: 0%;
+      align-items: center;
+      width: 100%;
+    }
+    @media screen and (max-width: 550px) {
+      .btn-special {
+        font-size: 1rem;
+      }
+    }
   }
 }

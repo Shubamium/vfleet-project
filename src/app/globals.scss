@@ -92,6 +92,12 @@ button {
   }
   @media screen and (max-width: 550px) {
     font-size: 2rem;
+    &.flag {
+      &::before {
+        width: 10px;
+        height: 10px;
+      }
+    }
   }
 }
 .common-sh {

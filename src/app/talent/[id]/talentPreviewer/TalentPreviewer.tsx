@@ -187,7 +187,7 @@ export default function TalentPreviewer({ t }: Props) {
               setShow((show) => !show);
             }}
           >
-            {!show ? "VIEW FULLSCREEN" : "VIEW DETAIL"}
+            {!show ? "FULL VIEW" : "SMALL VIEW"}
           </button>
         </div>
       </div>

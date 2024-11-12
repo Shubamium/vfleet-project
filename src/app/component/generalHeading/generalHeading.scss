@@ -3,7 +3,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
+  max-width: 80%;
+  margin: 0 auto;
   .vertical-line {
     height: 100px;
     width: 2px;
@@ -27,11 +28,17 @@
     white-space: nowrap;
     .side {
       max-width: 80px;
+      transform-origin: right;
       @media screen and (max-width: 550px) {
         max-width: 40px;
       }
+      @media screen and (max-width: 420px) {
+        max-width: 20px;
+        display: none;
+      }
       &.r {
         scale: -1 1;
+        transform-origin: center;
       }
     }
   }

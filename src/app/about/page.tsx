@@ -3,6 +3,7 @@ import GeneralBG from "../component/generalBG/GeneralBG";
 import GeneralHeading from "../component/generalHeading/GeneralHeading";
 import "./about.scss";
 import { fetchData } from "@/db/client";
+import Contribution from "./contribution/Contribution";
 export default async function AboutPage() {
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
@@ -46,8 +47,10 @@ export default async function AboutPage() {
         </div>
         <div className="confine">
           <article className="basic-article">
-            <p className="common-sh">SUB HEADING 1</p>
-            <p className="common-h s flag">OUR CORE VALUES</p>
+            <div className="title">
+              <p className="common-sh">SUB HEADING 1</p>
+              <h2 className="common-h s flag">OUR CORE VALUES</h2>
+            </div>
             <p className="common-p">
               (Placholder A1)VFleet is a Vtuber Company that prioritizes the
               needs of talents as well as works towards spreading awareness,
@@ -68,8 +71,10 @@ export default async function AboutPage() {
           <div className="div"></div>
 
           <article className="basic-article">
-            <p className="common-sh">SUB HEADING 1</p>
-            <p className="common-h s flag rv">OUR CORE VALUES</p>
+            <div className="title">
+              <p className="common-sh">SUB HEADING 1</p>
+              <h2 className="common-h s flag rv">OUR CORE VALUES</h2>
+            </div>
             <p className="common-p">
               (Placholder A1)VFleet is a Vtuber Company that prioritizes the
               needs of talents as well as works towards spreading awareness,
@@ -79,32 +84,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section id="contribution">
-        <div className="plane-art">
-          <img src="/de/plane-art-down.png" />
-        </div>
-        <article className="confine">
-          <div className="line"></div>
-          <img src="/gfx/icon_black.png" alt="" className="icon" />
-          <h2 className="common-sh">CONTRIBUTION</h2>
-          <div className="head">
-            <img src="/de/title-side.svg" alt="" className="side l" />
-            <h2 className="common-h">DONATIONS & SUPPORT</h2>
-            <img src="/de/title-side.svg" alt="" className="side r" />
-          </div>
-          <p className="common-p">
-            We encourage you to support our talents on their streaming journeys,
-            however, VFleet asks you to consider donating to the nonprofit naval
-            and aerospace museums that inspired this project. If there is a
-            museum ship near you, we encourage not only a donation, but a visit
-            as well! Your support matters!
-          </p>
-        </article>
-        <Link href={"/donate"} className="btn btn-special">
-          {" "}
-          DONATE
-        </Link>
-      </section>
+      <Contribution />
     </main>
   );
 }
