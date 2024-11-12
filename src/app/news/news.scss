@@ -22,6 +22,9 @@
       margin: 1em 0;
       max-width: 60%;
       margin-bottom: 3em;
+      @media screen and (max-width: 550px) {
+        max-width: 100%;
+      }
     }
     .heading-line {
       display: flex;
@@ -32,12 +35,22 @@
           width: 800px;
         }
       }
+
+      @media screen and (max-width: 550px) {
+        .common-h {
+          white-space: nowrap;
+          width: 100%;
+        }
+      }
       .line {
         width: 200px;
         background: linear-gradient(to right, transparent, var(--gold));
         height: 4px;
 
         transition: all 500ms ease;
+        @media screen and (max-width: 550px) {
+          width: 100%;
+        }
       }
       .plane {
         width: 50px;
@@ -58,6 +71,9 @@
       background: rgba(10, 10, 20, 0.842);
       border-top: 3px solid var(--blue);
       border-bottom: 3px solid var(--blue);
+      @media screen and (max-width: 768px) {
+        overflow: auto;
+      }
       .confine {
         display: flex;
       }
@@ -78,6 +94,13 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 80px 1.25em;
       padding-top: 100px;
+
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
 
       .news {
         background: #12171e;

@@ -10,6 +10,13 @@
         border: 3px solid var(--blue);
         outline: none;
         object-fit: cover;
+
+        @media screen and (max-width: 768px) {
+          height: 50vh;
+        }
+        @media screen and (max-width: 550px) {
+          height: 30vh;
+        }
       }
     }
 
@@ -19,7 +26,17 @@
       .sub-heading {
         display: flex;
         justify-content: space-between;
-
+        flex-wrap: wrap;
+        @media screen and (max-width: 550px) {
+          justify-content: center;
+          align-items: center;
+          .btn-triangle {
+            margin-bottom: 1em;
+            .endbits {
+              display: none;
+            }
+          }
+        }
         .left {
           p {
             font-size: 1.2rem;
@@ -99,28 +116,61 @@
           flex-direction: column;
           gap: 1em;
         }
+
+        @media screen and (max-width: 550px) {
+          padding: 1em;
+          flex-direction: column;
+          align-items: center;
+          .btn-triangle {
+            margin-bottom: 1em;
+            .endbits {
+              display: none;
+            }
+            .triangle {
+              display: none;
+            }
+          }
+          .right {
+            align-items: center;
+            flex-direction: row;
+            margin: 1em 0;
+          }
+        }
       }
     }
 
     .footer-bg {
+      @media screen and (max-width: 550px) {
+        display: none;
+      }
       img {
         width: 100%;
         height: 500px;
         object-fit: contain;
+        @media screen and (max-width: 550px) {
+          height: 400px;
+        }
       }
     }
 
     .footer-art {
       margin: 0 auto;
       margin-top: -550px;
-
+      @media screen and (max-width: 550px) {
+        // margin-top: -500px;
+        display: none;
+      }
       outline: 2px solid rgba(255, 255, 255, 0.692);
       outline-offset: -30px;
+      @media screen and (max-width: 550px) {
+        outline-offset: -10px;
+      }
       width: 80%;
       top: 10px;
       position: relative;
       img {
         width: 100%;
+        object-position: bottom;
         object-fit: contain;
         height: 500px;
       }
