@@ -130,6 +130,7 @@ export default function Header() {
       >
         <div className="bar">
           <nav>
+            <img src="/gfx/icon_main.png" alt="" />
             <Link href={"/"} className={`btn btn-nav`}>
               <span>HOME</span>
             </Link>
