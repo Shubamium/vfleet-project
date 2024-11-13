@@ -83,7 +83,7 @@ export default async function Home() {
           <div className="left">
             <h2 className="common-h s flag">TALENTS</h2>
             <p className="common-p">{t.h2}</p>
-            <button className="btn btn-triangle yellow">
+            <Link href={"/talents"} className="btn btn-triangle yellow">
               SEE OUR TALENT
               <div className="triangle">
                 <div className="arrow-line"></div>
@@ -105,7 +105,7 @@ export default async function Home() {
                 <div className="a"></div>
                 <div className="b"></div>
               </div>
-            </button>
+            </Link>
           </div>
           <HeroCycle
             artList={
@@ -127,7 +127,7 @@ export default async function Home() {
           <div className="right">
             <h2 className="common-h s flag">CONTACT</h2>
             <p className="common-p">{t.h3}</p>
-            <button className="btn btn-triangle yellow">
+            <Link href={"/contact"} className="btn btn-triangle yellow">
               REACH OUT
               <div className="triangle">
                 <div className="arrow-line"></div>
@@ -149,7 +149,7 @@ export default async function Home() {
                 <div className="a"></div>
                 <div className="b"></div>
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -214,8 +214,8 @@ export default async function Home() {
         <div className="content">
           <div className="mini-confine">
             <div className="left">
-              <button className="btn btn-triangle ">
-                REACH OUT
+              <Link href={"/about"} className="btn btn-triangle ">
+                LEARN MORE
                 <div className="triangle">
                   <div className="arrow-line"></div>
                   <svg
@@ -236,7 +236,7 @@ export default async function Home() {
                   <div className="a"></div>
                   <div className="b"></div>
                 </div>
-              </button>
+              </Link>
             </div>
             <div className="right">
               <p>{t.h4}</p>

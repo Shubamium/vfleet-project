@@ -94,13 +94,13 @@ export default function Footer({ l, r, sm }: any) {
                 <p>{r}</p>
                 <div className="battery-contribute">
                   <h3> Want to Contribute?</h3>
-                  <button className="btn btn-triangle ">
+                  <Link href={"/donate"} className="btn btn-triangle ">
                     SUPPORT US!
                     <div className="endbits">
                       <div className="a"></div>
                       <div className="b"></div>
                     </div>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
