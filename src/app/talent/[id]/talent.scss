@@ -162,6 +162,9 @@
         gap: 0.5em;
         position: relative;
         min-height: 220px;
+
+        &:has(.info-list) {
+        }
         @media screen and (max-width: 1024px) {
           display: flex;
           flex-direction: column;
@@ -207,7 +210,7 @@
             width: 100%;
             object-fit: contain;
             // top: -150px;
-            max-height: 180px;
+            height: 180px;
             position: relative;
             scale: 1;
           }
