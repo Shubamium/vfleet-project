@@ -69,7 +69,7 @@ export default async function Home() {
           <HeroCycle
             artList={
               generalData.hero_section.map((image: any) =>
-                cusUrlFor(image)?.height(1080).url()
+                cusUrlFor(image)?.height(980).auto("format").url()
               ) ?? ["/gfx/hero_art.png", "/gfx/hero_art2.png"]
             }
           />
@@ -110,7 +110,7 @@ export default async function Home() {
           <HeroCycle
             artList={
               generalData.talent_section.map((image: any) =>
-                cusUrlFor(image)?.height(1280).url()
+                cusUrlFor(image)?.auto("format").height(1080).url()
               ) ?? ["/gfx/talent_art.png", "/gfx/talent_art.png"]
             }
             duration={3000}

@@ -1,4 +1,4 @@
-import { fetchData } from "@/db/client";
+import { cusUrlFor, fetchData } from "@/db/client";
 import Footer from "./Footer";
 
 export default async function FooterTextProvider() {
@@ -8,5 +8,11 @@ export default async function FooterTextProvider() {
 	}[0]
 	`);
   const t = generalData.footer_text;
-  return <Footer l={t.left} r={t.right} />;
+  return (
+    <Footer
+      l={t.left}
+      r={t.right}
+      sm={cusUrlFor(t.small_art)?.auto("format").height(500).url()}
+    />
+  );
 }

@@ -5,7 +5,7 @@ import "./footer.scss";
 import { FaHeart } from "react-icons/fa";
 import SocialList from "../socialList/SocialList";
 
-export default function Footer({ l, r }: any) {
+export default function Footer({ l, r, sm }: any) {
   return (
     <footer id="footer">
       <div className="top-decor">a</div>
@@ -88,7 +88,7 @@ export default function Footer({ l, r }: any) {
           <div className="right">
             <div className="mini-about">
               <div className="art-part">
-                <img src="/gfx/footer-art.png" alt="" className="footer-art" />
+                <img src={sm} alt="" className="footer-art" />
               </div>
               <div className="text-part">
                 <p>{r}</p>

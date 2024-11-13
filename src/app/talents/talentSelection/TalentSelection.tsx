@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import * as motion from "framer-motion/client";
 import { AnimatePresence } from "framer-motion";
+import { LuLoader } from "react-icons/lu";
 type TalentCardData = {
   name: string;
   title: string;
@@ -127,7 +128,7 @@ export default function TalentSelection({ data }: Props) {
   const [positionList, setPositionList] = useState<number[]>([]);
   const [toRender, setToRender] = useState<TalentCardData[]>([]);
   const [activeCat, setActiveCat] = useState<string>(genList[0]);
-
+  const [loading, setLoading] = useState(false);
   const [activeTalent, setActiveTalent] = useState<{
     bg?: string;
     name: string;
@@ -174,39 +175,81 @@ export default function TalentSelection({ data }: Props) {
     reselectBackgroundTalent([...shifted], toRender);
   };
 
-  let fillToFit = (origin: TalentCardData[]) => {
-    if (origin.length === 0) return [];
-    let minimum = 10;
+  let fillToFit = (
+    origin: TalentCardData[]
+  ): { fixed: TalentCardData[]; toLoad: Promise<void>[] } => {
+    if (origin.length === 0) return { fixed: [], toLoad: [] };
+    let minimum = 7;
     let target = [...origin];
     while (target.length < minimum) {
       target.push(...origin);
     }
+
+    let loadImg = (src: string | undefined) => {
+      if (!src) return undefined;
+      let image = new Image();
+      image.src = src;
+      return { src, decode: image.decode() };
+    };
+
+    let toLoad: any[] = [];
     let fixed = target.map((tar) => {
+      let icon = loadImg(
+        cusUrlFor(tar.art.icon)?.auto("format").width(200).url()
+      );
+      let logo = loadImg(
+        cusUrlFor(tar.art.logo)?.auto("format").width(200).url()
+      );
+      let list = loadImg(
+        cusUrlFor(tar.art.list)?.auto("format").fit("scale").width(700).url()
+      );
+      let list_background = loadImg(
+        cusUrlFor(tar.art.list_background)?.auto("format").width(720).url()
+      );
+
+      let background = loadImg(
+        cusUrlFor(tar.art.background)
+          ?.auto("format")
+          .width(1080)
+          .saturation(-100)
+          .url()
+      );
+
+      toLoad.push(...[icon, logo, list, list_background, background]);
+
       return {
         ...tar,
         art: {
-          icon: cusUrlFor(tar.art.icon)?.width(200).url(),
-          logo: cusUrlFor(tar.art.logo)?.width(200).url(),
-          list: cusUrlFor(tar.art.list)?.fit("scale").width(700).url(),
-          list_background: cusUrlFor(tar.art.list_background)?.width(720).url(),
-          background: cusUrlFor(tar.art.background)
-            ?.auto("format")
-            .width(1080)
-            .saturation(-100)
-            .url(),
+          icon: icon?.src,
+          logo: logo?.src,
+          list: list?.src,
+          list_background: list_background?.src,
+          background: background?.src,
         },
-      };
+      } as TalentCardData;
     });
-    return fixed;
+
+    return { fixed, toLoad };
   };
 
   useEffect(() => {
     let talentData = data.get(activeCat).talents ?? [];
-    let fitted = fillToFit(talentData);
-    setToRender(fitted);
-    let newPos = fitted.map((_, i) => i);
-    setPositionList(newPos);
-    reselectBackgroundTalent(newPos, fitted);
+    let { fixed: fitted, toLoad } = fillToFit(talentData);
+    const next = () => {
+      setToRender(fitted);
+      let newPos = fitted.map((_, i) => i);
+      setPositionList(newPos);
+      reselectBackgroundTalent(newPos, fitted);
+    };
+    setLoading(true);
+    // Pre load all of the images
+    Promise.all(toLoad).then(() => {
+      next();
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    });
+    // Render all of the images
   }, [data, activeCat]);
 
   const reselectBackgroundTalent = (pos: number[], list: TalentCardData[]) => {
@@ -239,6 +282,9 @@ export default function TalentSelection({ data }: Props) {
 
   return (
     <>
+      <div className={`talent-load ${loading ? "load" : "loaded"}`}>
+        <LuLoader />
+      </div>
       <div className="fullscreen-bg">
         <div className="left">
           <p className="name dw">{activeTalent.name}</p>
