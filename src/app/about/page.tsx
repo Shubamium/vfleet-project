@@ -57,7 +57,7 @@ export default async function AboutPage() {
               src={
                 cusUrlFor(generalData.a1_art)
                   ?.auto("format")
-                  .height(700)
+                  .height(1080)
                   .url() ?? "/gfx/sectionart1.png"
               }
               alt=""
@@ -82,7 +82,7 @@ export default async function AboutPage() {
               src={
                 cusUrlFor(generalData.a2_art)
                   ?.auto("format")
-                  .height(700)
+                  .height(1080)
                   .url() ?? "/gfx/sectionart2.png"
               }
               alt=""
