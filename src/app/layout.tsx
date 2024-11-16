@@ -29,7 +29,12 @@ export const metadata: Metadata = {
   title: title,
 
   metadataBase: new URL(url),
-
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
   openGraph: {
     url: url,
     title: title,
@@ -43,6 +48,7 @@ export const metadata: Metadata = {
     images: [banner],
   },
   description: description,
+  keywords: [],
 };
 
 export default function RootLayout({

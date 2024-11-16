@@ -8,8 +8,8 @@ import { PortableText } from "next-sanity";
 export default async function AboutPage() {
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
-			'a1_art':a1_art->url,
-			'a2_art': a2_art->url,
+			'a1_art':a1_art.asset->url,
+			'a2_art': a2_art.asset->url,
 			about_text
 		}[0]
 	`);
