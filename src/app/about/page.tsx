@@ -8,8 +8,8 @@ import { PortableText } from "next-sanity";
 export default async function AboutPage() {
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
-			'a1_art':a1_art.asset->url,
-			'a2_art': a2_art.asset->url,
+			a1_art,
+			a2_art,
 			about_text
 		}[0]
 	`);
@@ -53,7 +53,15 @@ export default async function AboutPage() {
         <div className="side">
           <div className="div"></div>
           <figure>
-            <img src={generalData.a1_art ?? "/gfx/sectionart1.png"} alt="" />
+            <img
+              src={
+                cusUrlFor(generalData.a1_art)
+                  ?.auto("format")
+                  .height(700)
+                  .url() ?? "/gfx/sectionart1.png"
+              }
+              alt=""
+            />
           </figure>
         </div>
         <div className="confine">
@@ -70,7 +78,15 @@ export default async function AboutPage() {
       <section className="basic-section reverse">
         <div className="side">
           <figure>
-            <img src={generalData.a2_art ?? "/gfx/sectionart2.png"} alt="" />
+            <img
+              src={
+                cusUrlFor(generalData.a2_art)
+                  ?.auto("format")
+                  .height(700)
+                  .url() ?? "/gfx/sectionart2.png"
+              }
+              alt=""
+            />
           </figure>
           <div className="div"></div>
         </div>
