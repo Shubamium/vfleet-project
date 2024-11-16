@@ -3,16 +3,20 @@ import GeneralBG from "../component/generalBG/GeneralBG";
 import GeneralHeading from "../component/generalHeading/GeneralHeading";
 import "./donate.scss";
 export default async function Donate() {
-  const donationList = await fetchData<any[]>(`
-			*[_type == 'donation']{
-			...
-			}
-	`);
+  // const donationList = await fetchData<any[]>(`
+  // 		*[_type == 'general']{
+  // 		...
+  // 		}
+  // `);
   const generalData = await fetchData<any>(`
 		*[_type == 'general' && preset == 'main']{
-			donation_text
+			donation_text,
+			'donation':donation_order[] ->{
+			...}
 		}[0]
 	`);
+
+  const donationList = generalData.donation;
   const t = generalData.donation_text;
   return (
     <main id="page_donate">
@@ -23,7 +27,7 @@ export default async function Donate() {
       <section id="donation-list">
         <div className="confine">
           {donationList &&
-            donationList.map((item, index) => {
+            donationList.map((item: any, index: number) => {
               return (
                 <div className="donation" key={"donate_list" + item._id}>
                   <img
