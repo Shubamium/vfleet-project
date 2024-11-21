@@ -110,7 +110,7 @@ export default async function Home() {
           <HeroCycle
             artList={
               generalData.talent_section.map((image: any) =>
-                cusUrlFor(image)?.auto("format").height(1080).url()
+                cusUrlFor(image)?.auto("format").height(1500).url()
               ) ?? ["/gfx/talent_art.png", "/gfx/talent_art.png"]
             }
             duration={3000}

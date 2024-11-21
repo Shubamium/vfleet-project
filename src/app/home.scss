@@ -215,16 +215,19 @@
         position: relative;
         height: 100%;
         z-index: -2;
-
+        // left: -10%;
         .hero-art {
           position: absolute;
-          right: -300px;
           transform-origin: left;
           bottom: 0%;
           height: 85%;
           left: -500px;
           object-fit: contain;
           object-position: bottom;
+          &.large {
+            left: -700px;
+          }
+
           // background: red;
           // max-width: 500px;
         }

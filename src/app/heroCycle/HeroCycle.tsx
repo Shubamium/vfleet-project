@@ -22,23 +22,26 @@ export default function HeroCycle({ artList, duration }: Props) {
     let imgList = artList.map((url) => {
       let img = new Image();
       img.src = url;
-      return img;
+      let isWide = img.naturalWidth > 1000 ? "large" : "";
+      return {
+        image: img,
+        isWide,
+      };
     });
-
-    setImages(imgList.map((img) => img.src));
+    setImages(imgList);
   }, []);
 
   return (
     <figure className="right">
       <AnimatePresence mode="wait">
         {/* <motion.img src={list[activeImage]} className="hero-art" /> */}
-        {list.map((item, index: number) => {
+        {images.map((item, index: number) => {
           return activeImage % list.length === index ? (
             <motion.img
               // src={activeImage}
-              src={item}
+              src={item.image.src}
               key={"art-swing-" + index}
-              className="hero-art"
+              className={"hero-art " + item.isWide}
               // animate={{}}
               initial={{
                 x: -500,
