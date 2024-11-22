@@ -19,14 +19,18 @@ const oxanium = Oxanium({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
-const title = "VFLEET PROJECT";
+const title = "VFleet Project - A VTuber Company sailing the Virtual Seas";
 
-const description = "";
-const banner = "https://google.com";
-const url = "https://google.com";
+const description =
+  "A virtual entertainment company Sailing the virtual seas with the goal of supporting museum ship and aerospace museums around the world!";
+const banner = "https://i.ibb.co.com/3WwKxmJ/We-Are-VFleet.png";
+const url = "https://vfleetproject.com";
 
 export const metadata: Metadata = {
-  title: title,
+  title: {
+    default: "VFleet Project - A VTuber Company sailing the Virtual Seas",
+    template: "%s - VFleet Project",
+  },
 
   metadataBase: new URL(url),
   robots: {
@@ -48,7 +52,28 @@ export const metadata: Metadata = {
     images: [banner],
   },
   description: description,
-  keywords: [],
+  keywords: [
+    "vtuber",
+    "vtuber talent agency",
+    "vtuber agency audition",
+    "Vtuber Website",
+    "Vtuber Agency",
+    "Vtuber Group",
+    "Streamer",
+    "Anime",
+    "Shipgirl",
+    "Battelshipgirl",
+    "Jetgirl",
+    "VTuber",
+    "Battleship",
+    "Aircraft",
+    "Carrier",
+    "Virtual",
+    "History",
+    "Naval",
+    "Fleet",
+    "Navy",
+  ],
 };
 
 export default function RootLayout({

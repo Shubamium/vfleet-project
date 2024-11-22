@@ -120,7 +120,15 @@ export default async function Home() {
 
       <section id="contact-action">
         <div className="background">
-          <img src="/gfx/contact-banner.png" alt="" />
+          <img
+            src={
+              cusUrlFor(generalData.home_text.contact_banner)
+                ?.auto("format")
+                .height(1000)
+                .url() ?? "/gfx/contact-banner.png"
+            }
+            alt=""
+          />
         </div>
         <div className="confine">
           <div className="left"></div>
