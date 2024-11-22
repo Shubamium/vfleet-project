@@ -97,7 +97,7 @@
     overflow: hidden;
     .side {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr 1.2fr;
       position: absolute;
       height: 100%;
       width: 100%;
@@ -109,6 +109,12 @@
         width: 100%;
         // background: green;
         overflow: hidden;
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          white,
+          transparent 90%
+        );
         img {
           width: 100%;
           height: 100%;
