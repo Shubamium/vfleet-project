@@ -248,10 +248,10 @@ export default function TalentSelection({ data }: Props) {
   };
 
   useEffect(() => {
-    let talentData = [];
-    if (data.has(activeCat)) {
-      talentData = data.get(activeCat).talents;
-    }
+    let talentData = data.get(activeCat) ?? [];
+    // if (data.has(activeCat)) {
+    //   talentData = data.get(activeCat).talents;
+    // }
     let { fixed: fitted, toLoad } = fillToFit(talentData);
     const next = () => {
       setToRender(fitted);
