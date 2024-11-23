@@ -248,7 +248,7 @@ export default function TalentSelection({ data }: Props) {
   };
 
   useEffect(() => {
-    let talentData = data.get(activeCat) ?? [];
+    let talentData = data.get(activeCat).talents ?? [];
     // if (data.has(activeCat)) {
     //   talentData = data.get(activeCat).talents;
     // }
