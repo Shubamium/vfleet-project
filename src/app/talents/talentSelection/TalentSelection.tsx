@@ -7,6 +7,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import * as motion from "framer-motion/client";
 import { AnimatePresence } from "framer-motion";
 import { LuLoader } from "react-icons/lu";
+import { useRouter, useSearchParams } from "next/navigation";
 type TalentCardData = {
   name: string;
   title: string;
@@ -127,8 +128,17 @@ export default function TalentSelection({ data }: Props) {
 
   const [positionList, setPositionList] = useState<number[]>([]);
   const [toRender, setToRender] = useState<TalentCardData[]>([]);
-  const [activeCat, setActiveCat] = useState<string>(genList[0]);
+
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+
+  const [activeCat, setActiveCat] = useState<string>(
+    params.get("gen") ?? genList[0]
+  );
+
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
   const [activeTalent, setActiveTalent] = useState<{
     bg?: string;
     name: string;
@@ -141,6 +151,11 @@ export default function TalentSelection({ data }: Props) {
   // Debouncer
   const [debouncer, setdebouncer] = useState(false);
 
+  const updateGen = (gen: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("gen", gen);
+    window.history.pushState(null, "", `?${params.toString()}`);
+  };
   const runDebounce = () => {
     setdebouncer(true);
     setTimeout(() => {
@@ -351,6 +366,7 @@ export default function TalentSelection({ data }: Props) {
                 disabled={isDisabled}
                 onClick={() => {
                   setActiveCat(gen);
+                  updateGen(gen);
                 }}
               >
                 {gen}

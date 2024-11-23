@@ -5,12 +5,14 @@ import { useState } from "react";
 import { PortableText } from "next-sanity";
 import { cusUrlFor, urlFor } from "@/db/client";
 import { FaTwitch, FaYoutube } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 type Props = {
   t: any;
 };
 
 export default function TalentPreviewer({ t }: Props) {
   const [show, setShow] = useState(false);
+  const router = useRouter();
   return (
     <main id="page_talent" className={`${show ? "show" : "hidden"}`}>
       <div className="main-bg">
@@ -135,7 +137,13 @@ export default function TalentPreviewer({ t }: Props) {
           </div>
 
           <div className="action">
-            <Link href={"/talents"} className="btn btn-triangle reverse ">
+            <Link
+              href={"/talents"}
+              onClick={() => {
+                router.back();
+              }}
+              className="btn btn-triangle reverse "
+            >
               <div className="endbits">
                 <div className="a"></div>
                 <div className="b"></div>
