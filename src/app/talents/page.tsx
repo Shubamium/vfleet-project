@@ -1,6 +1,7 @@
 import { fetchData } from "@/db/client";
 import "./talents.scss";
 import TalentSelection from "./talentSelection/TalentSelection";
+import { Suspense } from "react";
 export default async function TalentPage() {
   const talentGroup = await fetchData<any[]>(`
 		*[_type == 'talent_group'] | order(_createdAt asc){
@@ -24,7 +25,9 @@ export default async function TalentPage() {
   // console.log(map);
   return (
     <main id="page_talents">
-      <TalentSelection data={map} />
+      <Suspense>
+        <TalentSelection data={map} />
+      </Suspense>
     </main>
   );
 }
