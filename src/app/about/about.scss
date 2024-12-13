@@ -150,6 +150,10 @@
       min-height: 500px;
       position: relative;
       z-index: 2;
+      @media screen and (max-width: 768px) {
+        display: block;
+        margin: 1em;
+      }
       @media screen and (max-width: 550px) {
         align-items: flex-start;
         padding-top: 1em;
