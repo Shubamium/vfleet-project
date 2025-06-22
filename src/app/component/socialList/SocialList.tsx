@@ -8,7 +8,7 @@ export default function SocialList() {
     <div className="social-list">
       <div className="socials-list">
         <a
-          href="https://discord.com/invite/vfleet"
+          href="#"
           target="_blank"
           className="btn btn-social"
         >
