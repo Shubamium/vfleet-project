@@ -7,13 +7,13 @@ export default function SocialList() {
   return (
     <div className="social-list">
       <div className="socials-list">
-        <a
+        {/* <a
           href="https://discord.gg/vfeet"
           target="_blank"
           className="btn btn-social"
         >
           <FaDiscord />
-        </a>
+        </a> */}
         <a
           href="https://www.twitch.tv/team/vfleet"
           target="_blank"
