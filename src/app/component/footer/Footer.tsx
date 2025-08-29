@@ -127,6 +127,21 @@ export default function Footer({ l, r, sm }: any) {
                 >
                   <img src="/gfx/partner2.png" alt="" />
                 </a>
+
+                <a
+                  target="_blank"
+                  href="https://gamersupps.gg/"
+                  className="partner btn"
+                >
+                  <img src="/gfx/partner_gs.png" alt="" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://riftrunnerstcg.com/"
+                  className="partner btn"
+                >
+                  <img src="/gfx/partner_ss.png" alt="" />
+                </a>
               </div>
 
               <div className="final-detail">
