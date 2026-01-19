@@ -24,7 +24,7 @@ const title = "VFleet Project - A VTuber Company sailing the Virtual Seas";
 const description =
   "A virtual entertainment company Sailing the virtual seas with the goal of supporting museum ship and aerospace museums around the world!";
 const banner =
-  "http://shubastore.caprover.venmi.art/api/public/dl/fkw3RFwI?inline=true";
+  "http://shubastore.venmiart.com/api/public/dl/fkw3RFwI?inline=true";
 const url = "https://vfleetproject.com";
 
 export const metadata: Metadata = {
